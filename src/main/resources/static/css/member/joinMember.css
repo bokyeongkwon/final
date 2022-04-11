@@ -1,0 +1,177 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Jua', sans-serif;
+}
+
+a{
+    color: #000;
+}
+
+body{
+    background-color: #fcf8f4;
+    color: #594440;
+}
+header{
+    height: 100px;
+    width: 80%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 상단 메뉴 */
+.icon_ul,
+.menu{
+  list-style: none;
+  display: flex;
+}
+
+.menu>li{
+    margin:8px 12px;
+    font-size: 28px;
+}
+
+/* 우측 상단 아이콘 */
+.icon li{
+    margin:8px 12px;
+    font-size: 35px;
+}
+
+/* 검색창 */
+.search{
+    height: 40px;
+    width: 25%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.search.textbox{
+    height: 30px;
+    width: 80%;
+    text-align:start;
+    font-size: 25px;
+}
+
+.search.button{
+    height: 35px;
+    width: 50px;
+    padding-left: 10px;
+    line-height: 35px;
+    font-size: 16px;
+}
+
+/* 회원가입 화면 */
+main{
+    width: 70%;
+    margin: 50px auto;
+    /* background-color: #fcf8f4; */
+
+}
+
+/* 회원가입 텍스트 */
+.member_join{
+    padding: 30px 0;
+    letter-spacing: 10px;
+    font-size: 40px;
+    color: #F37335;
+}
+
+/* 입력사항 텍스트 */
+.essential{
+    height: 40px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    font-size: 25px;
+    line-height:40px;
+    background-color: #e5d0b5;
+}
+
+/* 입력사항 공통 */
+.member_e{
+    border: none;
+    border-bottom: 1px solid #dedede;
+}
+
+.content{
+    display: flex;
+}
+
+.item{
+    height: 50px;
+    width: 15%;
+    padding: 10px 10px;
+    border: none;
+    border-bottom: 1px solid #dedede;
+    font-size: 25px;
+    line-height: 50px;
+    background-color: #f0f0f0;
+}
+
+.item2{
+    height: 40px;
+    padding: 10px 10px;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+input[type=text]{
+    width: 200px;
+    height: 30px;
+}
+
+input[type=radio]{
+    width: 15px;
+    height: 15px;
+}
+
+label{
+    margin: 0 10px;
+    font-size: 23px;
+}
+
+button, select{
+    width: 100px;
+    height: 35px;
+    font-size: 20px;
+}
+
+
+
+/* 가입버튼 */
+.join_cafe{
+    margin: 100px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.cafe{
+    height: 80px;
+    width: 150px;
+    border: none;
+    font-size: 30px;
+    color: #594440;
+    letter-spacing: 3px;
+    line-height: 80px;
+    background-color: #e5d0b5;
+}
+
+.cafe:hover{
+    cursor : pointer;
+}
+
+/* 하단 */
+footer{
+    border-top: 1px solid darkgreen;
+}
+
+footer>ul{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+
+

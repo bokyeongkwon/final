@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 외부 아이콘 임포트 -->
+  <script src="https://kit.fontawesome.com/d4b88f7572.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <!-- 외부 css파일을 여러 개 적용할 때 코드 순서상 가장 아래에 적용된 css의 우선순위가 높다 -->
+  <link rel="stylesheet" href="/static/css/board/bakingClass.css" th:href="@{/css/board/bakingClass.css}">
+
+  <!-- 구글 폰트 Jua 적용  -->
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+  <title>베이킹 클래스 게시판</title>
+
+  <!-- 외부 JS파일 연결, 화면이 로딩 된 후 적용 -->
+  <script defer src="" th:src="@{/js/board/bakingClass_ajax.js}"></script>
+  <script defer src="" th:src="@{/js/board/bakingClass.js}"></script>
+
+  <!-- 네이버, 카카오 지도 API. 기기가 달라지면 플랫폼 별도 추가 필요 -->
+  <!--  <script type="text/javascript"-->
+  <!--          src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=0y3jm6bdzz"></script>-->
+  <!--  <script type="text/javascript"-->
+  <!--          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=38d6ce372c141979c2b8c65e59778eb3&libraries=services">-->
+  <!--  </script>-->
+  <script type="text/javascript"
+          src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=n7h0qk93da"></script>
+  <script type="text/javascript"
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=13985b7a92d3ad25544564af1540eed1&libraries=services">
+  </script>
+</head>
+
+<body>
+<header>
+  <div class="inner">
+    <!-- 로고 -->
+    <a href="" th:href="@{/}" class="logo"><img src="" th:src="@{/img/logo.jpg}" alt="" width="150px" height="100px"></a>
+    <!-- 상단 메뉴 -->
+    <nav class="category" >
+      <ul class="menu">
+        <li>
+          <a href="#"><span>분야별 레시피</span></a>
+          <ul>
+            <li><a href="#" th:href="@{/board/1?cateNum=11}"><span>제과</span></a></li>
+            <li><a href="#" th:href="@{/board/1?cateNum=12}"><span>제빵</span></a></li>
+            <li><a href="#" th:href="@{/board/1?cateNum=13}"><span>음료</span></a></li>
+            <li><a href="#" th:href="@{/board/1?cateNum=14}"><span>노오븐 베이킹</span></a></li>
+          </ul>
+        </li>
+        <li>|</li>
+        <li>
+          <a href="#"><span>테마별 레시피</span></a>
+          <ul>
+            <li><a href="#" th:href="@{/board/1?cateNum=21}"><span>발렌타인 데이</span></a></li>
+            <li><a href="#" th:href="@{/board/1?cateNum=22}"><span>할로윈</span></a></li>
+            <li><a href="#" th:href="@{/board/1?cateNum=23}"><span>빼빼로 데이</span></a></li>
+            <li><a href="#" th:href="@{/board/1?cateNum=24}"><span>크리스마스</span></a></li>
+          </ul>
+        </li>
+        <li>|</li>
+        <li>
+          <a href="#"><span>사진 팁</span></a>
+          <ul>
+            <li><a href="#" th:href="@{/board/1?cateNum=31}">구도/각도</a></li>
+            <li><a href="#" th:href="@{/board/1?cateNum=32}">보정</a></li>
+          </ul>
+        </li>
+        <li>|</li>
+        <li>
+          <a href="#"><span>베이킹 클래스 찾기</span></a>
+          <ul>
+            <li><a href="#" th:href="@{/board/1?cateNum=41}">베이킹 클래스 찾기</a></li>
+          </ul>
+        </li>
+        <li>|</li>
+        <li>
+          <a href="#"><span>커뮤니티</span></a>
+          <ul>
+            <li><a href="#"  th:href="@{/board/1?cateNum=51}">Q&A</a></li>
+            <li><a href="#"  th:href="@{/board/1?cateNum=52}">자유 게시판</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </nav>
+    <!-- 우측상단 아이콘 -->
+    <div class="icon">
+      <ul class="icon_ul">
+        <li><a href="#" class="searchBtn"><i class="fas fa-search"></i></a></li>
+        <li><a href="#" class="memberBtn"><i class="far fa-user"></i></a></li>
+        <li><a href="#" class="alarmBtn"><i class="fa fa-bell"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<!-- 검색창 -->
+<div class="container_search">
+  <div class="search">
+    <input class="search textbox" type="text">
+    <!-- placeholder="검색어를 입력하세요."> -->
+    <button class="search button">검색</button>
+  </div>
+</div>
+
+<main th:data-cate-num="${cateNum}">
+  <!-- 게시판 -->
+  <div class="content_page">
+    <!-- 게시판 상단 현 페이지 주소 표시, 정렬 콤보박스, 글쓰기 버튼 -->
+    <!--            th:data-code="${cateNum}"-->
+    <div id="page_status" >
+      <th:block th:each=" sub : ${subTitle}">
+        <div id="page_name" th:text="${sub.cateName}">지역별 클래스 검색</div>
+      </th:block>
+
+      <!-- order_wrapper = (order + write_btn) -->
+      <div class="order_wrapper">
+        <select name="order" id="post_order">
+          <option value="">정렬기준</option>
+          <option value="">아직미정</option>
+          <option value="">조회수등</option>
+        </select>
+        <button id="bakingClassWriteBtn">글쓰기</button>
+      </div>
+    </div>
+
+    <!-- 본문 -->
+    <!-- 지역 선택창 -->
+    <div class="cities-wrap">
+      <div id="superBox">
+
+        <div class="allCities">
+          <button id="allCityBtn">전체</button>
+        </div>
+        <div class="superCity">
+          <button class="cityBtn" data-super-id="Seoul">서울</button>
+          <button class="cityBtn" data-super-id="Busan">부산</button>
+          <button class="cityBtn" data-super-id="Daegu">대구</button>
+          <button class="cityBtn" data-super-id="Incheon">인천</button>
+          <button class="cityBtn" data-super-id="Gwangju">광주</button>
+          <button class="cityBtn" data-super-id="Dajeon">대전</button>
+          <button class="cityBtn" data-super-id="Ulsan">울산</button>
+          <button class="cityBtn" data-super-id="Sejong">세종</button>
+          <button class="cityBtn" data-super-id="Gyeonggi">경기</button>
+          <button class="cityBtn" data-super-id="Gangwon">강원</button>
+          <button class="cityBtn" data-super-id="Chungbuk">충북</button>
+          <button class="cityBtn" data-super-id="Chungnam">충남</button>
+          <button class="cityBtn" data-super-id="Jeonbuk">전북</button>
+          <button class="cityBtn" data-super-id="Jeonnam">전남</button>
+          <button class="cityBtn" data-super-id="Gyeongbuk">경북</button>
+          <button class="cityBtn" data-super-id="Gyeongnam">경남</button>
+          <button class="cityBtn" data-super-id="Jeju">제주</button>
+        </div>
+      </div>
+      <div id="subBox">
+        <!-- 군/구 체크박스가 출력될 자리 -->
+        <!-- <span><input type="checkbox">${}</span> -->
+      </div>
+    </div>
+
+    <!-- 본문 지도 디스플레이-->
+    <div id="mapDisplay">
+      <div id="map"></div>
+    </div>
+
+    <!-- 지도 아래 게시판 -->
+    <div class="mapBoard">
+      <div class="mapBoard_container">
+        <div class="col uppermost">no</div>
+        <div class="col uppermost">제목</div>
+        <div class="col uppermost">작성자</div>
+        <div class="col uppermost">작성일</div>
+        <div class="col uppermost">조회수</div>
+
+        <!-- db내용을 ListForm 형식에 맞게 표시하는 데 타임리프 반복문 필요 -->
+        <th:block th:each=" item : ${list}">
+          <div class="col" th:text="${item.boardNum}">게시물 번호</div>
+          <a href="" class="col" id="boardTitle" th:text="${item.boardTitle}" th:href="@{/board/{boardNum}/detail(boardNum=${item.boardNum},cateNum=${param.cateNum})}">제목</a>
+          <div class="col" th:text="${item.nickname}">작성자ID or Nickname</div>
+          <div class="col" th:text="${#temporals.format(item.boardDate,'yy/MM/dd HH:dd')}">작성일</div>
+          <div class="col" th:text="${item.boardHit}">조회수</div>
+        </th:block>
+      </div>
+    </div>
+
+    <!-- 페이징 버튼 -->
+    <div class="bbs-page">
+      <!--이전페이지정보-->
+      <th:block th:if="${pc.prev}">
+        <a class="bbs-page-item" href="" th:href="@{/board/1(cateNum=${param.cateNum})}"><i class="fas fa-angle-double-left"></i></a>
+        <a class="bbs-page-item" href="" th:href="@{/board/{reqPage}(reqPage=${pc.startPage-1}, cateNum=${param.cateNum})}"><i class="fas fa-angle-left"></i></a>
+      </th:block>
+
+      <!--페이지표시-->
+      <th:block th:each="pnum : ${#numbers.sequence(pc.startPage,pc.endPage)}">
+        <th:block th:if="${pnum != 0}">
+          <!--                  <a class="bbs-page-item" th:classappend="${pc.rc.reqPage == pnum} ? 'active'" href="" th:href="@{|/board/${pnum}|}" th:text="${pnum}">1</a>-->
+          <a class="bbs-page-item" th:classappend="${pc.rc.reqPage == pnum} ? 'active'"
+             href="" th:href="@{/board/{reqPage}(reqPage=${pnum}, cateNum=${param.cateNum})}" th:text="${pnum}">1</a>
+        </th:block>
+      </th:block>
+      <!--                (cateNum=${param.cateNum})-->
+
+      <!--다음페이지정보-->
+      <th:block th:if="${pc.next}">
+        <a class="bbs-page-item" href="" th:href="@{/board/{reqPage}(reqPage=${pc.endPage+1}, cateNum=${param.cateNum})}"><i class="fas fa-angle-right"></i></a>
+        <a class="bbs-page-item" href="" th:href="@{/board/{reqPage}(reqPage=${pc.finalEndPage}, cateNum=${param.cateNum})}"><i class="fas fa-angle-double-right"></i></a>
+      </th:block>
+    </div>
+  </div>
+
+  </div>
+</main>
+
+<!-- 게시판 하단. 게시글 검색, 기타 등등 -->
+<div id="post_search_bar">
+  <select name="post_filter" id="post_filter">
+    <option value="title">제목</option>
+    <option value="author">작성자</option>
+    <option value="mixed">제목+내용</option>
+  </select>
+  <input type="text" name="scan_post" id="scan_post"><button id="post_search_btn">검색</button>
+</div>
+
+<!-- 최하단 -->
+<footer>
+  <ul class="menu">
+    <li>개인정보취급방침</li>
+    <li>|</li>
+    <li>회원약관</li>
+    <li>|</li>
+    <li>공정위확인</li>
+    <li>|</li>
+    <li>쇼핑몰 고객센터</li>
+    <li>|</li>
+    <li>000-111-2222</li>
+  </ul>
+</footer>
+
+<script>
+   // 현재 접속해있는 게시판의 카테고리 읽어오기.
+const $main = document.querySelector('main');
+const cateNum = ($main?.dataset.cateNum) ? $main.dataset.cateNum : '';
+
+const $bakingClassWriteBtn = document.getElementById('bakingClassWriteBtn');
+$bakingClassWriteBtn?.addEventListener('click', e => {
+    location.href = `/board/add?cateNum=${cateNum}`;
+
+});
+
+// 헤더 내려오기
+$(function(){
+    const depth1 = $(".menu > li"),
+          header = $("header");
+
+    depth1.mouseenter(function(){
+        header.stop().animate({height:"500px"});
+    }).mouseleave(function(){
+        header.stop().animate({height:"100px"});
+    })
+    console.log('클릭됨');
+}); //ready
+
+//member on/off
+const $memberBtn = document.querySelector(".memberBtn");
+$memberBtn?.addEventListener("click", e=> {
+
+    const $container_member = document.querySelector(".container_member");
+    if($container_member.style.display=="none"){
+        $container_member.style.display = "flex";
+    }else{
+        $container_member.style.display = "none";
+    }
+});
+
+// 검색창 on/off
+const $searchBtn = document.querySelector(".searchBtn");
+$searchBtn?.addEventListener("click", e=> {
+
+    const $container_search = document.querySelector(".container_search");
+    if($container_search.style.display=="none"){
+        $container_search.style.display = "block";
+    }else{
+        $container_search.style.display = "none";
+    }
+});
+
+</script>
+
+</body>
+
+
+</html>

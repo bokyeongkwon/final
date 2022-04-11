@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<header th:fragment="fragment-global">
+  <div class="inner">
+    <!-- 로고 -->
+    <a href="" th:href="@{/}" class="logo"><img src="" th:src="@{/img/logo.jpg}" alt="" width="150px" height="100px"></a>
+    <!-- 상단 메뉴 -->
+    <nav class="category" >
+      <ul class="menu">
+        <li>
+          <a href="#"><span>분야별 레시피</span></a>
+          <ul>
+            <li><a href="#" th:href="@{/board/1?cateNum=11}"><span>제과</span></a></li>
+            <li><a href="#" th:href="@{/board/1?cateNum=12}"><span>제빵</span></a></li>
+            <li><a href="#" th:href="@{/board/1?cateNum=13}"><span>음료</span></a></li>
+            <li><a href="#" th:href="@{/board/1?cateNum=14}"><span>노오븐 베이킹</span></a></li>
+          </ul>
+        </li>
+        <li>|</li>
+        <li>
+          <a href="#"><span>테마별 레시피</span></a>
+          <ul>
+            <li><a href="#" th:href="@{/board/1?cateNum=21}"><span>발렌타인 데이</span></a></li>
+            <li><a href="#" th:href="@{/board/1?cateNum=22}"><span>할로윈</span></a></li>
+            <li><a href="#" th:href="@{/board/1?cateNum=23}"><span>빼빼로 데이</span></a></li>
+            <li><a href="#" th:href="@{/board/1?cateNum=24}"><span>크리스마스</span></a></li>
+          </ul>
+        </li>
+        <li>|</li>
+        <li>
+          <a href="#"><span>사진 팁</span></a>
+          <ul>
+            <li><a href="#" th:href="@{/board/1?cateNum=31}">구도/각도</a></li>
+            <li><a href="#" th:href="@{/board/1?cateNum=32}">보정</a></li>
+          </ul>
+        </li>
+        <li>|</li>
+        <li>
+          <a href="#"><span>베이킹 클래스 찾기</span></a>
+          <ul>
+            <li><a href="#" th:href="@{/board/1?cateNum=41}">베이킹 클래스 찾기</a></li>
+          </ul>
+        </li>
+        <li>|</li>
+        <li>
+          <a href="#"><span>커뮤니티</span></a>
+          <ul>
+            <li><a href="#"  th:href="@{/board/1?cateNum=51}">Q&A</a></li>
+            <li><a href="#"  th:href="@{/board/1?cateNum=52}">자유 게시판</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </nav>
+    <!-- 우측상단 아이콘 -->
+    <div class="icon">
+      <ul class="icon_ul">
+        <li><a href="#" class="searchBtn"><i class="fas fa-search"></i></a></li>
+        <li><a href="#" class="memberBtn"><i class="far fa-user"></i></a></li>
+        <li><a href="#" class="alarmBtn"><i class="fa fa-bell"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+</body>
+</html>

@@ -1,0 +1,77 @@
+*{
+  padding: 0;
+  margin: 0;
+  /* font-family: 'Gamja Flower', cursive; */
+  /* background-color: #fff8ee; */
+  font-family: 'Jua', sans-serif;
+}
+
+a{
+  color: #000;
+  text-decoration-line: none;
+}
+
+/* 아이디 확인 구현 시작 */
+/* 타이틀 내용 */
+article {
+  height: 270px;
+  width: 400px;
+  margin: 30px auto;
+  background-color: beige;
+}
+.showID-top {
+  margin-top: 100px;
+  padding-left: 25px;
+  color: rgb(114, 62, 62);
+  line-height: 50px;
+  font-size: 20px;
+  background-color: wheat;
+}
+.showID-mid li{
+  list-style: none;
+  padding : 50px;
+  text-align: center;
+  font-size: 30px;
+}
+/* 아이디확인 구현 종료 */
+
+/* 하단 */
+footer {
+  margin: 0 auto;
+}
+/* 비밀번호 찾기 바로가기 */
+.bottom-text {
+  justify-content: center;
+  display: flex;
+  font-size: 13px;
+}
+
+/* @media screen and (max-width:400px) {
+  article {
+    width: 350px;
+  }
+  .login-body {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+  }
+  .login-body1 {
+    width: 350px;
+    text-align: center;
+  }
+  .id-textbox,
+  .pw-textbox {
+    width: 300px;
+  }
+  .login-button {
+    width: 300px;
+  }
+  .login-body2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .line-border {
+    display: none;
+  }
+} */

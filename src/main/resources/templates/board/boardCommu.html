@@ -1,0 +1,204 @@
+<!--적용안됨-->
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>커뮤니티 게시판</title>
+  <!-- 외부 아이콘 임포트 -->
+  <script src="https://kit.fontawesome.com/d4b88f7572.js" crossorigin="anonymous"></script>
+  <!--    폰트 적용 -->
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+  <!-- css -->
+  <link rel="stylesheet" href="/static/css/board/community.css" th:href="@{/css/board/community.css}">
+</head>
+
+<header>
+  <!-- 로고, 클릭하면 메인 화면으로 이동 -->
+  <a href="" th:href="@{/}" class="logo"><img src="" th:src="@{/img/logo.jpg}" alt="" width="150px"
+                                              height="100px"></a>
+
+  <!-- 상단 메뉴 -->
+  <div class="category">
+    <!-- 카테고리 구분, menu = depth1 -->
+    <ul class="menu">
+      <li class="pcode">분야별 레시피</li>
+      <li>|</li>
+      <li class="pcode">테마별 레시피</li>
+      <li>|</li>
+      <li class="pcode">사진 팁</li>
+      <li>|</li>
+      <li class="pcode">베이킹 클래스 찾기</li>
+      <li>|</li>
+      <li class="pcode">커뮤니티</li>
+    </ul>
+    <!-- 드롭다운 -->
+    <div class="dropdown-content">
+      <div class="depth2">
+        <a href="#" th:href="@{/board/1?cateNum=11}" class="">제과</a>
+        <a href="#" th:href="@{/board/1?cateNum=12}" class="">제빵</a>
+        <a href="#" th:href="@{/board/1?cateNum=13}" class="">음료</a>
+        <a href="#" th:href="@{/board/1?cateNum=14}" class="">노오븐 베이킹</a>
+      </div>
+      <div class="depth2">
+        <a href="#" th:href="@{/board/1?cateNum=21}" class="">발렌타인 데이</a>
+        <a href="#" th:href="@{/board/1?cateNum=22}" class="">할로윈</a>
+        <a href="#" th:href="@{/board/1?cateNum=23}" class="">빼빼로 데이</a>
+        <a href="#" th:href="@{/board/1?cateNum=24}" class="">크리스마스</a>
+      </div>
+      <div class="depth2">
+        <a href="#" th:href="@{/board/1?cateNum=31}" class="">구도/각도</a>
+        <a href="#" th:href="@{/board/1?cateNum=32}" class="">보정</a>
+      </div>
+      <div class="depth2">
+        <a href="#" th:href="@{/board/1?cateNum=41}" class="">베이킹 클래스 찾기</a>
+      </div>
+      <div class="depth2">
+        <a href="#" th:href="@{/board/1?cateNum=51}" class="">QnA</a>
+        <a href="#" th:href="@{/board/1?cateNum=52}" class="">자유 게시판</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 우측상단 아이콘 -->
+  <div class="icon">
+    <ul class="icon_ul">
+      <li><a href="#" class="searchBtn"><i class="fas fa-search"></i></a></li>
+      <li><i class="far fa-user"></i></li>
+      <li><i class="fas fa-bars"></i></li>
+    </ul>
+  </div>
+</header>
+
+<!-- 검색창 -->
+<div class="container_search">
+  <div class="search">
+    <input class="search textbox" type="text" placeholder="검색어를 입력하세요.">
+    <button class="search button">검색</button>
+  </div>
+</div>
+
+<!-- main -->
+<main th:data-cate-num="${cateNum}">
+  <!-- 왼쪽 배너.-->
+  <div id="leftCategory" >
+    <th:block th:each=" super :${leftMenuTitle}">
+      <div id="leftCategory_title" th:text="${super.cateName}">[super]</div>
+    </th:block>
+    <ul class="leftCategory_ul" >
+      <th:block th:each=" items :${subTitle}">
+        <li class="leftCategory_li" ><a href="" th:href="@{/board/1(cateNum=${items.cateNum})}"
+                                        id="leftCategory_li" class="leftLi_a" th:text="${items.cateName}">[sub]</a></li>
+      </th:block>
+    </ul>
+  </div>
+  <!-- 본문 -->
+  <div class="liLiWrap">
+    <div class="upperBox">
+      <th:block th:each=" items :${subTitle}" th:if="${items.cateNum}==${cateNum}">
+        <div class="liLiMenu" th:text="${items.cateName}">[sub]</div>
+      </th:block>
+      <button type="button" id="writeBtn">글쓰기</button>
+    </div>
+
+    <!-- start -->
+    <div class="mapBoard">
+      <div class="mapBoard_container">
+        <div class="col uppermost">no</div>
+        <div class="col uppermost">제목</div>
+        <div class="col uppermost">작성자</div>
+        <div class="col uppermost">작성일</div>
+        <div class="col uppermost">조회수</div>
+
+        <!-- db내용을 ListForm 형식에 맞게 표시하는 데 타임리프 반복문 필요 -->
+        <th:block th:each=" item : ${list}">
+          <div class="col" th:text="${item.boardNum}">게시물 번호</div>
+          <a href="" class="col" id="boardTitle" th:text="${item.boardTitle}" th:href="@{/board/{boardNum}/detail(boardNum=${item.boardNum},cateNum=${param.cateNum})}">제목</a>
+          <div class="col" th:text="${item.nickname}">작성자ID or Nickname</div>
+          <div class="col" th:text="${#temporals.format(item.boardDate,'yy/MM/dd HH:dd')}">작성일</div>
+          <div class="col" th:text="${item.boardHit}">조회수</div>
+        </th:block>
+      </div>
+    </div>
+    <!-- end -->
+
+  </div>
+
+  </div>
+</main>
+
+<!-- 게시판 하단 쪽번호, 검색창 -->
+<div id="page_navi">
+  <!-- 페이징 버튼 -->
+  <div class="bbs-page">
+    <!--이전페이지정보-->
+    <th:block th:if="${pc.prev}">
+      <a class="bbs-page-item" href="" th:href="@{/board/1(cateNum=${param.cateNum})}"><i
+              class="fas fa-backward"></i></a>
+      <a class="bbs-page-item" href=""
+         th:href="@{/board/{reqPage}(reqPage=${pc.startPage-1}, cateNum=${param.cateNum})}"><i
+              class="fas fa-angle-left"></i></a>
+    </th:block>
+
+    <!--페이지표시-->
+    <th:block th:each="pnum : ${#numbers.sequence(pc.startPage,pc.endPage)}">
+      <th:block th:if="${pnum != 0}">
+        <a class="bbs-page-item" th:classappend="${pc.rc.reqPage == pnum} ? 'active'" href=""
+           th:href="@{/board/{reqPage}(reqPage=${pnum}, cateNum=${param.cateNum})}"
+           th:text="${pnum}">1</a>
+      </th:block>
+    </th:block>
+
+    <!--다음페이지정보-->
+    <th:block th:if="${pc.next}">
+      <a class="bbs-page-item" href=""
+         th:href="@{/board/{reqPage}(reqPage=${pc.endPage+1}, cateNum=${param.cateNum})}"><i
+              class="fas fa-angle-right"></i></a>
+      <a class="bbs-page-item" href=""
+         th:href="@{/board/{reqPage}(reqPage=${pc.finalEndPage}, cateNum=${param.cateNum})}"><i
+              class="fas fa-forward"></i></a>
+    </th:block>
+  </div>
+
+</div>
+
+</div>
+
+<!-- 게시판 최하단. 게시글 검색, 기타 등등 -->
+<div id="post_search_bar">
+  <select name="post_filter" id="post_filter">
+    <option value="title">제목</option>
+    <option value="author">작성자</option>
+    <option value="mixed">제목+내용</option>
+  </select>
+  <input type="text" name="post_search" id="post_search"><button id="post_search_btn">검색</button>
+</div>
+
+<!-- 하단 -->
+<footer>
+  <ul class="menu">
+    <li>HOME CA:BE 운영팀:a@kh.com</li>
+    <li>|</li>
+    <li>이용약관</li>
+    <li>|</li>
+    <li>개인정보취급방침</li>
+  </ul>
+</footer>
+
+<script>
+  // 현재 접속해있는 게시판의 카테고리 읽어오기.
+const $main = document.querySelector('main');
+const cateNum = ($main?.dataset.cateNum) ? $main.dataset.cateNum : '';
+
+const $writeBtn = document.getElementById('writeBtn');
+$writeBtn?.addEventListener('click', e => {
+    location.href = `/board/add?cateNum=${cateNum}`;
+});
+</script>
+
+
+</body>
+
+</html>

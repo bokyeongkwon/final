@@ -1,0 +1,163 @@
+*{  
+    padding: 0;
+    margin: 0;
+    font-family: 'Jua', sans-serif;
+}
+
+a{
+    color: #000;
+}
+body{
+    background-color: #fcf8f4;
+    color: #594440;
+}
+header{
+    height: 100px;
+    width: 80%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 상단 메뉴 */
+.icon_ul,
+.menu{
+  list-style: none;
+  display: flex;
+}
+
+.menu>li{
+    margin:8px 12px;
+    font-size: 25px;
+}
+
+/* 우측 상단 아이콘 */
+.icon li{
+    margin:8px 12px;
+    font-size: 30px;
+}
+
+/* 검색창 */
+.search{
+    height: 40px;
+    width: 25%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.search.textbox{
+    height: 30px;
+    width: 80%;
+    text-align:start;
+    font-size: 25px;
+}
+
+.search.button{
+    height: 35px;
+    width: 50px;
+    padding-left: 10px;
+    line-height: 35px;
+    font-size: 16px;
+}
+
+/* 회원정보 수정 화면 */
+main{
+    width: 70%;
+    margin: 50px auto;   
+}
+
+/* 회원정보 수정 텍스트 */
+.member_correction{
+    padding: 20px 0;
+    letter-spacing: 10px;
+    font-size: xx-large;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* 회원정보 */
+.content{
+    display: flex;
+}
+
+/* 회원정보안의 텍스트 박스 */
+.content input[type=text]{
+    display: none;
+}
+.content input[type=password]{
+    display: none;
+}
+
+.item{
+    height: 50px;
+    width: 15%;
+    padding: 10px 10px;
+    border: none;
+    border-bottom: 1px solid #dedede;
+    line-height: 50px;
+    background-color: #f0f0f0;
+}
+/* 수정이 되지않는 회원정보 */
+.item2{
+    height: 50px;
+    padding: 10px 10px;
+    line-height: 50px;
+}
+/* 수정이 가능한 회원정보 */
+.item3{
+    height: 50px;
+    padding: 10px 10px;
+}
+/* 수정창 */
+.member_Information{
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+}
+
+/* 정보 각각의 수정버튼 */
+.modify_member{
+    height: 20px;
+    width: 100px;
+    border: 1px solid black;
+    font-size: 10px;
+}
+/* 탈퇴버튼 */
+#outBtn{
+    height: 20px;
+    width: 100px;
+    border: 1px solid black;
+    font-size: 10px;
+}
+
+/* 최종 수정버튼 */
+.setting{
+    margin: 100px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.setting_member{
+    margin: 0 50px;
+    height: 80px;
+    width: 150px;
+    border: none;
+    font-size: 30px;
+    color: #594440;
+    letter-spacing: 3px;
+    line-height: 80px;
+    background-color: #e5d0b5;
+}
+
+/* 하단 */
+footer{
+    border-top: 1px solid darkgreen;
+}
+
+footer>ul{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,330 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* border: 1px solid red; */
+    /* font-family: 'Gamja Flower', cursive; */
+    /* background-color: #F7EEE3; */
+}
+
+
+.container{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 345px 1fr 250px;
+    grid-template-rows: 150px 1fr 50px 50px;
+    grid-template-areas:'header header header'
+                        'aside main a'
+                        'aside bottom a'
+                        'aside footer a';
+                        /* footer footer footer */
+                        /* 에서 변경해봄 */
+
+}
+.container div{
+    /* border: 1px solid black; */
+    border-collapse: collapse;
+}
+.header{
+    grid-area:header ;
+    text-align: center;
+}
+/* ===========헤더가져온 css================== */
+a{
+    color: #000;
+    text-decoration: none;
+}
+header{
+    height: 100px;
+    width: 80%;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 상단 메뉴 */
+.icon_ul,
+.menu{
+  list-style: none;
+  display: flex;
+}
+
+.menu>li{
+    margin:8px 12px;
+    font-size: 25px;
+}
+
+/* 우측 상단 아이콘 */
+.icon li{
+    margin:8px 12px;
+    font-size: 30px;
+}
+
+/* 검색창 */
+.search{
+    height: 40px;
+    width: 25%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.search.textbox{
+    height: 30px;
+    width: 80%;
+    text-align:start;
+    font-size: 25px;
+}
+
+.search.button{
+    height: 35px;
+    width: 50px;
+    padding-left: 10px;
+    line-height: 35px;
+    font-size: 16px;
+}
+/* ======================== */
+
+.nav{
+    grid-area: nav;
+}
+.icon{
+    grid-area: icon;
+}
+.aside{
+    grid-area: aside;
+}
+.main{
+    grid-area: main;
+    padding-left: 130px ;
+}
+.a{
+    grid-area: a;
+}
+.bottom{
+    grid-area: bottom;
+}
+.footer{
+    grid-area: footer;
+}
+
+/* 전체 ul, li */
+ul li{
+    list-style-type: none;
+}
+/*border선을 좀 깔끔하게 하고싶은데*/
+/* div, table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+} */
+.bbs-wrap{
+    margin-top: 50px;
+}
+
+/* 왼쪽 카테고리 */
+.in-aside{
+    display: flex;
+    justify-content: end;
+    height: 100%;
+    margin-top: 50px;
+}
+
+.leftCategory {
+    display: flex;
+    position: fixed;
+    width: 180px; height: 400px;
+    flex-direction: column;
+    text-align: center;
+    background-color: white;
+}
+
+#leftCategory_title {
+    height: 10%;
+    padding: 10px 0;
+    border-radius: 10px;
+    font-size: 18pt;
+    font-weight: bold;
+    line-height: 40px;
+    background-color: #FBD786;
+}
+
+.leftCategory_ul {
+    height: 90%;
+    width: 100%;
+    list-style: none;
+}
+
+.leftCategory_li {
+    height: 50px;
+    margin: 30px 0;
+    border-bottom: solid 1px black;
+    font-size: 18pt;
+    line-height: 20px;
+}
+
+#boardReport{
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 5px;
+    /* background-color: #a7cebc; */
+}
+
+
+/* rpLiMenu 부분 */
+.bbs-wrap .rpLiMenu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid red;
+}
+
+.bbs-wrap .rpLiMenu ul {
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-left: 1px solid #ddd;
+    font-size: 0;
+}
+
+.bbs-wrap .rpLiMenu li{
+    width: 25%;
+    display: inline-block;
+    border: 1px solid #ddd;
+    /* border-bottom: 1px solid #ef3e42; */
+    border-left: none;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    position: relative;
+    font-size: 20px;
+    text-align: center;
+}
+
+.bbs-wrap .rpLiMenu li a {
+    display: block;
+    height: 50px;
+    line-height: 48px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    color: #707070;
+}
+
+.bbs-wrap .rpLiMenu li.poRpList{
+    border: 1px solid #ef3e42;
+    border-bottom: 1px solid #fff;
+    background-color: #fff;
+    color: #ef3e42;
+}
+
+.bbs-wrap .rpLiMenu p{
+    margin: 0 10px;
+}
+
+.bbs-wrap .rpLiMenu .rpFind{
+    margin-left: 10px;
+    margin-right: 20px;
+    height: 25px;
+    width: 70px;
+}
+
+
+
+/* 매인 */
+/* 선그리기 */
+.bbs-wrap .bbs-content table{
+    width:100%;
+    /* border:1px solid #333; */
+    border-collapse: collapse;
+}
+/* 회색칠하기 블랜디 모드 사용 */
+#border{
+    background-blend-mode: multiply;
+    color: grey;
+    background-size: cover;
+}
+#reply{
+    background-blend-mode: multiply;
+    color: grey;
+    background-size: cover;
+}
+/* .bbs-wrap .bbs-content table th,
+.bbs-wrap .bbs-content table td{
+  border:1px solid #333;
+  padding:3px;
+} */
+
+/* 매인 시작 */
+/* 매인 상단 게시물,댓글 선택/ 날짜 선택 위치정렬
+   매인 하단 전체선택 삭제 버튼 위치 정렬
+*/
+.main_down{
+    margin-top: 30px;
+}
+.main_down{
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.right_main button{
+    width: 50px;
+    height: 30px;
+}
+
+
+.breport, .rreport{
+    border-top: solid 1px black;
+    border-left: solid 1px black ;
+    border-right: solid 1px black ;
+    border-radius: 0.2em;
+    margin-left: 5px;
+
+}
+/* 테이블시작 */
+.bbs-body{
+    margin-top: 30px;
+}
+
+
+.bbs-body .bbs-content table tr th{
+    border-bottom: 1px solid black;
+    height: 60px;
+}
+.bbs-body .bbs-content table tr td{
+    border-bottom: 1px solid gray;
+    text-align: center;
+    height: 60px;
+}
+.bbs-body .bbs-content table tr .result{
+    text-align: start;
+}
+
+/* 페이지 */
+.bottom .bbs-page{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+  }
+
+  .bottom .bbs-page .bbs-page-item{
+    display:inline-block;
+    width:24px;
+    height:24px;
+    padding:2px;
+    text-align: center;
+  }
+
+  .bottom .bbs-page .bbs-page-item.active{
+    background-color:#333;
+    color:white;
+  }
+
+/* 해리푸터 */
+.menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}

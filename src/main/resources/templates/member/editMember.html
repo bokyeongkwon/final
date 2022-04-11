@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/d4b88f7572.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet"> -->
+    <script defer src="" th:src="@{/js/member/editMember.js}"></script>
+    <link rel="stylesheet" href="/css/member/editMember.css">
+
+</head>
+
+<body>
+<header>
+    <!-- 로고 -->
+    <div class="logo"><img src="/img/logo.jpg" alt="" width="150px" height="100px"></div>
+    <!-- 상단 메뉴 -->
+    <nav>
+        <ul class="menu">
+            <li>분야별 레시피</li>
+            <li>|</li>
+            <li>테마별 레시피</li>
+            <li>|</li>
+            <li>사진 팁</li>
+            <li>|</li>
+            <li>홈베이킹 클래스</li>
+            <li>|</li>
+            <li>Q&A</li>
+            <li>|</li>
+            <li>자유게시판</li>
+        </ul>
+    </nav>
+    <!-- 우측상단 아이콘 -->
+    <div class="icon">
+        <ul class="icon_ul">
+            <li><a href="#" class="searchBtn"><i class="fas fa-search"></i></a></li>
+            <li><i class="far fa-user"></i></li>
+            <li><i class="fas fa-bars"></i></li>
+        </ul>
+    </div>
+</header>
+
+<!-- 검색창 -->
+<div class="container_search">
+    <div class="search">
+        <input class="search textbox" type="text" placeholder="검색어를 입력하세요.">
+        <button class="search button">검색</button>
+    </div>
+</div>
+
+<!-- 회원정보수정 화면 -->
+<main>
+    <form action="" th:action th:object="${detailForm}" method="post">
+        <input type="hidden" th:field="*{gender}">
+        <input type="hidden" th:field="*{memberNum}">
+        <!-- 회원정보수정 텍스트 -->
+        <div class="member_correction">
+            <b>회원정보수정</b>
+        </div>
+        <!-- 회원정보수정 내용 -->
+        <div class="member_Information">
+            <div class="content m_name">
+                <div class="item name">이름</div>
+                <div class="item2">
+                    <div class="item2_name" th:text="${detailForm.name}">데이터베이스에서 가져올 이름</div>
+                </div>
+            </div>
+            <div class="content m_id">
+                <div class="item id">아이디</div>
+                <div class="item2">
+                    <div class="item2_id" th:text="${detailForm.id}">데이터베이스에서 가져올 아이디</div>
+                </div>
+            </div>
+            <div class="content m_pwd">
+                <div class="item pwd">비밀번호</div>
+                <div class="item3">
+                    <div class="item3_pwd">
+                        <!--                            <th:block th:each=' pwLength: ${detailForm.pw.split("")}'>*</th:block>-->
+                        <th:block th:each="pwLength: ${#numbers.sequence(1,#strings.length(detailForm.pw))}">*</th:block><!-- for문이랑 같은 방식-->
+                    </div>
+                    <input type="password" th:field="*{pw}">
+                    <button type="button" class="modify_member pwd_modify">수정</button>
+                </div>
+            </div>
+            <div class="content m_phone">
+                <div class="item phone">연락처</div>
+                <div class="item3">
+                    <div class="item3_phone" th:text="${detailForm.tel}">데이터베이스에서 가져올 연락처</div>
+                    <input type="text" th:field="*{tel}">
+                    <button type="button" class="modify_member phone_modify">수정</button>
+                </div>
+            </div>
+            <div class="content m_email">
+                <div class="item email">이메일</div>
+                <div class="item3">
+                    <div class="item3_email" th:text="${detailForm.email}">데이터베이스에서 가져올 이메일</div>
+                    <input type="text" th:field="*{email}">
+                    <button type="button" class="modify_member email_modify">수정</button>
+                </div>
+            </div>
+            <div class="content m_birth">
+                <div class="item birth">생년월일</div>
+                <div class="item3">
+                    <div class="item3_birth" th:text="${detailForm.birth}">데이터베이스에서 가져올 생년월일</div>
+                    <input type="text" th:field="*{birth}">
+                    <button type="button" class="modify_member birth_modify">수정</button>
+                </div>
+            </div>
+            <div class="content m_sex">
+                <div class="item sex">성별</div>
+                <div class="item2">
+                    <label for="male"><input type="radio" name="sex" id="male" value="남"
+                                             onclick='getGender(event)'>남</label>
+                    <label for="female"><input type="radio" name="sex" id="female" value="여"
+                                               onclick='getGender(event)'>여</label>
+                </div>
+            </div>
+            <div class="content m_nickname">
+                <div class="item nickname">닉네임</div>
+                <div class="item3">
+                    <div class="item3_nickname" th:text="${detailForm.nickname}">데이터베이스에서 가져올 닉네임</div>
+                    <input type="text" th:field="*{nickname}">
+                    <button class="nickname_chk" style="display: none;">중복확인</button>
+                    <button type="button" class="modify_member nickname_modify">수정</button>
+                </div>
+            </div>
+            <div class="content m_outBtn">
+                <div class="item outBtn">탈퇴</div>
+                <div class="item2">
+                    <button type="button" id="outBtn">탈퇴</button>
+                </div>
+            </div>
+        </div>
+        <!-- 수정과 취소 버튼 -->
+        <div class="setting">
+            <button class="setting_member" id="setting"><b>수정하기</b></button>
+            <button type="button" class="setting_member" id="cancel"><b>취소</b></button>
+        </div>
+    </form>
+</main>
+
+<footer>
+    <ul class="menu">
+        <li>개인정보취급방침</li>
+        <li>|</li>
+        <li>회원약관</li>
+        <li>|</li>
+        <li>공정위확인</li>
+        <li>|</li>
+        <li>쇼핑몰 고객센터</li>
+        <li>|</li>
+        <li>000-111-2222</li>
+    </ul>
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아이디 출력</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/login/showID.css">
+  <script src="https://kit.fontawesome.com/69fdf7daef.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- 아이디 확인 시작-->
+<!-- 타이틀 내용 -->
+  <article>
+    <div class="showID-top">HOME CA:BE 아이디 확인</div>
+    <div class="showID-mid">
+      <li>아이디는&nbsp;&nbsp;&nbsp;입니다</li>
+    </div>
+  </article>
+</form>
+<!-- 하단 -->
+<footer>
+  <div class="bottom-text">
+    <div>비밀번호가 기억나지 않는다면?&nbsp;&nbsp;</div>
+    <div><a href="#" th:href="@{/findTelPW}">비밀번호 찾기</a></div>
+    <div>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" th:href="@{/}">홈으로 돌아가기</a></div>
+  </div>
+</footer>
+</body>
+
+</html>

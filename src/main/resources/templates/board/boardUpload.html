@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d4b88f7572.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="/css/board/boardUpload.css">
+    <script defer th:src="@{/js/common/ckeditor.js}"></script>
+    <script defer src="" th:src="@{/js/board/boardUpload.js}"></script>
+    <script defer th:src="@{/js/common/ko.js}"></script>
+    <title>Document</title>
+</head>
+<body>
+<header>
+    <div class="logo"><img src="/img/logo.jpg" alt="" width="150px" height="100px"></div>
+    <nav>
+        <ul class="menu">
+            <li>분야별 레시피</li>
+            <li>|</li>
+            <li>테마별 레시피</li>
+            <li>|</li>
+            <li>사진 팁</li>
+            <li>|</li>
+            <li>홈베이킹 클래스</li>
+            <li>|</li>
+            <li>Q&A</li>
+            <li>|</li>
+            <li>자유게시판</li>
+        </ul>
+    </nav>
+    <div class="icon">
+        <ul>
+            <li ><a href="#" class="searchBtn"><i class="fas fa-search"></i></a></li>
+            <li><i class="far fa-user"></i></li>
+            <li><i class="fas fa-bars"></i></li>
+        </ul>
+    </div>
+</header>
+<!-- 검색창 -->
+<div class="container_search">
+    <div class="search">
+        <input class="search textbox" type="text" placeholder="검색어를 입력하세요.">
+        <button class="search button">검색</button>
+    </div>
+</div>
+<!-- 메인 시작 -->
+<main th:data-cate-num="${category}">
+    <section>
+        <form action="" method="post" th:object="${addForm}" enctype="multipart/form-data">
+            <div class="sectionINsection">
+                <!-- HOME CA:BE 글쓰기 와 등록 BOX -->
+                <div class="section_header">
+                    <p>HOME CA:BE 글쓰기</p>
+                    <div class="button-wrap">
+                        <button id="main">목록</button>
+                        <button id="upLoad">등록</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="임시">
+                    <!-- 게시판선택 -->
+                    <select name="boardCho" id="boardCho" th:field="*{cateNum}">
+                        <option value="11">제과</option>
+                        <option value="12">제빵</option>
+                        <option value="13">음료</option>
+                        <option value="14">노오븐 베이킹</option>
+                        <option value="21">발렌타인 데이</option>
+                        <option value="22">할로윈</option>
+                        <option value="23">빼빼로 데이</option>
+                        <option value="24">크리스마스</option>
+                        <option value="31">구도 / 각도</option>
+                        <option value="32">보정</option>
+                        <option value="51">Q&A</option>
+                        <option value="52">자유게시판</option>
+                    </select>
+                    <!-- 레시피 출처 선택 -->
+                    <div class="resource">
+                        <select name="resource" id="resource" th:field="*{fromRecipe}">
+                            <option value="1">나만의 레시피</option>
+                            <option value="2">퍼온 레시피</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- 게시물 제목 -->
+                <div class="boardTitle">
+                    <input type="text" id="inputTitle" placeholder="제목" style="height: 40px;" th:field="*{boardTitle}">
+                    <!--            데이터 추가용 입력필드-->
+                    <input type="text" name="" placeholder="멤버번호" th:field="*{memberNum}">
+                    <input type="text" name="" placeholder="멤버닉네임" th:field="*{nickname}">
+                </div>
+                <!-- 본문내용 입력창 -->
+                <textarea name="content" id="boardContent" th:field="*{boardContent}" cols="30" rows="10" placeholder="내용"></textarea>
+            </div>
+            <div>
+                첨부파일
+            </div>
+            <div>
+                <!-- 파일 입력창 -->
+                <input type="file" name="" id="" th:field="*{files}" multiple>
+            </div>
+            </div>
+        </form>
+    </section>
+</main>
+<!-- 하부메뉴 -->
+<footer>
+    <ul class="menu">
+        <li>개인정보취급방침</li>
+        <li>|</li>
+        <li>회원약관</li>
+        <li>|</li>
+        <li>공정위확인</li>
+        <li>|</li>
+        <li>쇼핑몰 고객센터</li>
+        <li>|</li>
+        <li>000-111-2222</li>
+    </ul>
+</footer>
+</body>
+</html>

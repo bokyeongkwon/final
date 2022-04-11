@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>home</title>
+  <!-- 외부 아이콘 임포트 -->
+  <script src="https://kit.fontawesome.com/d4b88f7572.js" crossorigin="anonymous"></script>
+  <!--    폰트 적용 -->
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+  <!--    임시 css-->
+  <link rel="stylesheet" href="/static/css/board/home.css" th:href="@{/css/board/home.css}">
+
+</head>
+
+<body>
+<header>
+  <!-- 로고, 클릭하면 메인 화면으로 이동 -->
+  <a href="" th:href="@{/}" class="logo"><img src="" th:src="@{/img/logo.jpg}" alt="" width="150px" height="100px"></a>
+
+  <!-- 상단 메뉴 -->
+  <div class="category">
+    <!-- 카테고리 구분, menu = depth1 -->
+    <ul class="menu">
+      <li class="pcode">분야별 레시피</li>
+      <li>|</li>
+      <li class="pcode">테마별 레시피</li>
+      <li>|</li>
+      <li class="pcode">사진 팁</li>
+      <li>|</li>
+      <li class="pcode">베이킹 클래스 찾기</li>
+      <li>|</li>
+      <li class="pcode">커뮤니티</li>
+    </ul>
+    <!-- 드롭다운 -->
+    <div class="dropdown-content">
+      <div class="depth2">
+        <a href="#" th:href="@{/board/1?cateNum=11}" class="">제과</a>
+        <a href="#" th:href="@{/board/1?cateNum=12}" class="">제빵</a>
+        <a href="#" th:href="@{/board/1?cateNum=13}" class="">음료</a>
+        <a href="#" th:href="@{/board/1?cateNum=14}" class="">노오븐 베이킹</a>
+      </div>
+      <div class="depth2">
+        <a href="#" th:href="@{/board/1?cateNum=21}" class="">발렌타인 데이</a>
+        <a href="#" th:href="@{/board/1?cateNum=22}" class="">할로윈</a>
+        <a href="#" th:href="@{/board/1?cateNum=23}" class="">빼빼로 데이</a>
+        <a href="#" th:href="@{/board/1?cateNum=24}" class="">크리스마스</a>
+      </div>
+      <div class="depth2">
+        <a href="#" th:href="@{/board/1?cateNum=31}" class="">구도/각도</a>
+        <a href="#" th:href="@{/board/1?cateNum=32}" class="">보정</a>
+      </div>
+      <div class="depth2">
+        <a href="#" th:href="@{/board/1?cateNum=41}" class="">베이킹 클래스 찾기</a>
+      </div>
+      <div class="depth2">
+        <a href="#" th:href="@{/board/1?cateNum=51}" class="">QnA</a>
+        <a href="#" th:href="@{/board/1?cateNum=52}" class="">자유 게시판</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 우측상단 아이콘 -->
+  <div class="icon">
+    <ul class="icon_ul">
+      <li><a href="#" class="searchBtn"><i class="fas fa-search"></i></a></li>
+      <li><a href="/login" th:href="@{/login}"><i class="far fa-user"></i></a></li>
+      <li><i class="fas fa-bars"></i></li>
+    </ul>
+  </div>
+</header>
+
+<!-- 검색창 -->
+<div class="container_search">
+  <div class="search">
+    <input class="search textbox" type="text">
+    <!-- placeholder="검색어를 입력하세요."> -->
+    <button class="search button">검색</button>
+  </div>
+</div>
+
+<!-- 본문 -->
+<main>
+
+</main>
+
+<!-- 게시판 하단. 게시글 검색, 기타 등등 -->
+<div id="post_search_bar">
+  <form action="">
+    <select name="post_filter" id="post_filter">
+      <option value="title">제목</option>
+      <option value="author">작성자</option>
+      <option value="mixed">제목+내용</option>
+    </select>
+    <input type="text" name="scan_post" id="scan_post"><button id="post_search_btn">검색</button>
+  </form>
+</div>
+
+<!-- 최하단 -->
+<footer>
+  <ul class="menu">
+    <li>개인정보취급방침</li>
+    <li>|</li>
+    <li>회원약관</li>
+    <li>|</li>
+    <li>공정위확인</li>
+    <li>|</li>
+    <li>쇼핑몰 고객센터</li>
+    <li>|</li>
+    <li>000-111-2222</li>
+  </ul>
+</footer>
+
+
+</body>
+
+</html>

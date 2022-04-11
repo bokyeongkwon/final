@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d4b88f7572.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href=".css">
+    <title>관리자 게시물 신고 내역</title>
+</head>
+<body>
+    <div class="container">
+        <!--header로고-->
+        <div class="header">
+            <header>
+                <!-- 로고 -->
+                <div class="logo"><img src="/logo.jpg" alt="" width="150px" height="100px"></div>
+                <!-- 상단 메뉴 -->
+                <nav>
+                    <ul class="menu">
+                        <li>분야별 레시피</li>
+                        <li>|</li>
+                        <li>테마별 레시피</li>
+                        <li>|</li>
+                        <li>사진 팁</li>
+                        <li>|</li>
+                        <li>홈베이킹 클래스</li>
+                        <li>|</li>
+                        <li>Q&A</li>
+                        <li>|</li>
+                        <li>자유게시판</li>
+                    </ul>
+                </nav>
+                <!-- 우측상단 아이콘 -->
+                <div class="icon">
+                    <ul class="icon_ul">
+                        <li ><a href="#" class="searchBtn"><i class="fas fa-search"></i></a></li>
+                        <li><i class="far fa-user"></i></li>
+                        <li><i class="fas fa-bars"></i></li>
+                    </ul>
+                </div>
+            </header>
+        </div>
+
+        <!--aside마이페이지버튼-->
+        <div class="aside">
+            <div class="in-aside">
+                <div class="leftCategory" id="leftCategory">
+                    <div id="leftCategory_title">관리자 페이지</div>
+                    <ul class="leftCategory_ul">
+                        <li class="leftCategory_li"><a href="#" id="boardReport">게시물 신고</a></li>
+                        <li class="leftCategory_li"><a href="#" id="replyReport">댓글 신고</a></li>
+                        <li class="leftCategory_li"><a href="#" id="postingList">게시물</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--메인-->
+        <div class="main">
+            <div class="bbs-wrap">
+                <div class="rpLiMenu">
+                    <ul>
+                        <li class="poRpList"><a href="#" role="tab">게시물</a></li>
+                    </ul>
+                    <p><input type="date" min="2022-01-01" max="2032-01-01" id=""></p>
+                    <p>~</p>
+                    <p><input type="date" min="2022-01-01" max="2032-01-01" id=""></p>
+                    <button class="rpFind">찾기</button>
+                </div>
+                <div class="bbs-body">
+                    <div class="bbs-content">
+                        <table style="table-layout: fixed;">
+                            <!--테이블 시작-->
+                            <!-- thead -->
+                            <thead>
+                            <tr>
+                                <th scope="col" width="5%">번호</th>
+                                <th scope="col" width="2.5%">ㅣ</th>
+                                <th scope="col" width="15%">신고일</th>
+                                <th scope="col" width="2.5%">ㅣ</th>
+                                <th scope="col" width="55%" >게시물 제목</th>
+                                <th scope="col" width="2.5%">ㅣ</th>
+                                <th scope="col" width="10%">신고 사유</th>
+                                <th scope="col" width="2.5%">ㅣ</th>
+                                <th scope="col" width="15%">진행 상황</th>
+                            </tr>
+                            </thead>
+                            <!--게시물 내용-->
+                            <!-- tbody -->
+                            <tbody>
+                            <tr>
+                                <td scope="col" width="5%">1</td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="15%">2022-01-31</td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="55%" >바보 멍청이</td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="10%"><i class="fas fa-angle-down"></i></td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="15%">처리 중</td>
+                            </tr>
+                            <tr>
+                                <td scope="col" width="5%">2</td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="15%">2022-02-09</td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="55%" >메롱</td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="10%"><i class="fas fa-angle-up"></i></td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="15%">처리 중</td>
+                            </tr>
+                            <tr>
+                                <td colspan="9">
+                                    <div>카페와 전혀 상관 없는 내용의 게시물</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col" width="5%">3</td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="15%">2022-03-15</td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="55%" >힘들다</td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="10%"><i class="fas fa-angle-down"></i></td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="15%">완료
+                                    <span><i class="fas fa-angle-down"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td scope="col" width="5%">4</td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="15%">2022-02-09</td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="55%" >메롱</td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="10%"><i class="fas fa-angle-down"></i></td>
+                                <td scope="col" width="2.5%"></td>
+                                <td scope="col" width="15%">완료
+                                    <span><i class="fas fa-angle-up"></i></span></td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">
+                                    <div>결과 :</div>
+                                </th>
+                                <td colspan="1">
+                                    <div>삭제</div>
+                                </td>
+                                <td colspan="1">|</td>
+                                <td class="result" colspan="5">
+                                    <div>카페와 상관 없는 내용의 게시물로 판단되어 게시물을 삭제 조취함.</div>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div><!--bbs-content-->
+                </div><!--bbs-body-->
+            </div>
+        </div>
+        <!--오른쪽 여백-->
+        <div class="a"></div>
+
+        <!--bottom 페이지 위치-->
+        <div class="bottom">
+            <div class="bbs-page">
+                <!--이전페이지정보-->
+                <th:block th:if="${fc.prev}">
+                    <a class="bbs-page-item" href=""
+                       th:href="@{/bbs/list/1/{searchType}/{keyword}(searchType=${fc.searchType},keyword=${fc.keyword},category=${param.category})}">
+                        <i class="fas fa-angle-double-left"></i>
+                    </a>
+                    <a class="bbs-page-item" href=""
+                       th:href="@{/bbs/list/{reqPage}/{searchType}/{keyword}(reqPage=${fc.startPage-1},searchType=${fc.searchType},keyword=${fc.keyword},category=${param.category})}">
+                        <i class="fas fa-angle-left"></i>
+                    </a>
+                </th:block>
+
+                <!--페이지표시-->
+                <th:block th:each="pnum : ${#numbers.sequence(fc.startPage,fc.endPage)}">
+                    <th:block th:if="${pnum != 0}">
+                        <!--                  <a class="bbs-page-item" th:classappend="${fc.rc.reqPage == pnum} ? 'active'" href="" th:href="@{|/bbs/list/${pnum}|}" th:text="${pnum}">1</a>-->
+                        <a class="bbs-page-item" th:classappend="${fc.rc.reqPage == pnum} ? 'active'" href=""
+                           th:href="@{/bbs/list/{reqPage}/{searchType}/{keyword}(reqPage=${pnum},searchType=${fc.searchType},keyword=${fc.keyword},category=${param.category})}"
+                           th:text="${pnum}">1</a>
+                    </th:block>
+                </th:block>
+
+                <!--다음페이지정보-->
+                <th:block th:if="${fc.next}">
+                    <a class="bbs-page-item" href=""
+                       th:href="@{/bbs/list/{reqPage}/{searchType}/{keyword}(reqPage=${fc.endPage+1},searchType=${fc.searchType},keyword=${fc.keyword},category=${param.category})}">
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                    <a class="bbs-page-item" href=""
+                       th:href="@{/bbs/list/{reqPage}/{searchType}/{keyword}(reqPage=${fc.finalEndPage},searchType=${fc.searchType},keyword=${fc.keyword},category=${param.category})}">
+                        <i class="fas fa-angle-double-right"></i>
+                    </a>
+                </th:block>
+            </div>
+        </div>
+
+        <!--fotter-->
+        <div class="footer">
+            <ul class="menu">
+                <li>개인정보취급방침</li>
+                <li>회원약관</li>
+                <li>공정위확인</li>
+                <li>쇼핑몰 고객센터</li>
+                <li>000-111-2222</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

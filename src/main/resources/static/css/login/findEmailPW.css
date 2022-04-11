@@ -1,0 +1,163 @@
+*{
+  padding: 0;
+  margin: 0;
+  /* font-family: 'Gamja Flower', cursive; */
+  /* background-color: #fff8ee; */
+  font-family: 'Jua', sans-serif;
+}
+
+
+a{
+  color: #000;
+}
+/* 상단 메뉴 */
+header{
+  width: 100%;
+  height: 35px;
+  display: flex;
+  background-color: orange;
+/*  justify-content: center; */
+}
+.topMenu {
+  display: none;
+}
+
+/* 비밀번호 찾기 구현 시작 */
+
+/* 헤드(여백 내용) */
+.head_blank {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+.order{
+  margin-top: 100px;
+  width: 500px;
+}
+.orderTop{
+  display: flex;
+  justify-content: space-between;
+}
+.big{
+  font-size: 1.3em;
+}
+.small1 {
+  font-size: 0.5em;
+}
+/* 타이틀 내용 */
+article {
+  height: 340px;
+  width: 500px;
+  margin: 0 auto;
+  background-color: beige;
+}
+.pwFind-top {
+  height: 50px;
+  margin-top: 10px;
+  padding-left: 25px;
+  color: brown;
+  line-height: 50px;
+  font-size: 20px;
+  background-color: wheat;
+}
+.text1 {
+  color: rgb(114, 62, 62);
+  font-size: 20px;
+}
+/* 항목 선택 */
+.findPW {
+
+}
+/* 휴대폰으로 찾기,
+  이메일로 찾기 선택 */
+.findPW_select {
+  margin-top: 15px;
+  margin-left: 30px;
+  color: rgb(114, 62, 62);
+}
+
+.findPW_select input {
+}
+
+.text2,
+.text3 {
+
+}
+/* 선택 항목별 내용 */
+/* 정보 입력란 */
+.pwFind-phoneText {
+  margin-top: 10px;
+  text-align: center;
+}
+li {
+  list-style-type: none;
+}
+.text-name,
+.textInfo {
+  height: 45px;
+  width: 435px;
+  margin-top: 10px;
+  padding-left: 10px;
+  font-size: 15px;
+  border: 1px solid silver;
+}
+/* 정보 입력 버튼 */
+.findPW-button {
+  height: 45px;
+  width: 447px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  border: none;
+  font-size: 15px;
+  background-color: orange;
+}
+.pwFind-emailText {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* 비밀번호 구현 종료 */
+
+/* 하단 */
+footer {
+  margin: 0 auto;
+}
+/* 아이디 찾기 바로가기 */
+.bottom-text {
+  margin-top: 10px;
+  flex-direction: row;
+  justify-content: center;
+  display: flex;
+  font-size: 13px;
+}
+
+/* @media screen and (max-width:400px) {
+  article {
+    width: 350px;
+  }
+  .login-body {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+  }
+  .login-body1 {
+    width: 350px;
+    text-align: center;
+  }
+  .id-textbox,
+  .pw-textbox {
+    width: 300px;
+  }
+  .login-button {
+    width: 300px;
+  }
+  .login-body2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .line-border {
+    display: none;
+  }
+} */

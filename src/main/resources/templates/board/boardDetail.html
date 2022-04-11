@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/d4b88f7572.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet"> -->
+  <link rel="stylesheet" href="" th:href="@{/css/board/boardDetail.css}">
+  <script defer src="" th:src="@{/js/board/boardDetail.js}"></script>
+  <title>게시물</title>
+</head>
+<body>
+<header>
+  <!-- 로고 -->
+  <div class="logo"><img src="/logo.jpg" alt="" width="180px" height="150px"></div>
+  <!-- 상단 메뉴 -->
+  <nav class="menuBox1">
+    <ul class="menu">
+      <li>
+        <a href="#">분야별 레시피</a>
+        <ul>
+          <li><a href="">제과</a></li>
+          <li><a href="">제빵</a></li>
+          <li><a href="">음료</a></li>
+          <li><a href="">노오븐 베이킹</a></li>
+        </ul>
+      </li>
+      <li>|</li>
+      <li>
+        <a href="#">테마별 레시피</a>
+        <ul>
+          <li><a href="">발렌타인 데이</a></li>
+          <li><a href="">할로윈</a></li>
+          <li><a href="">빼빼로 데이</a></li>
+          <li><a href="">크리스마스</a></li>
+        </ul>
+      </li>
+      <li>|</li>
+      <li>
+        <a href="#"> 사진 팁 </a>
+        <ul>
+          <li><a href="">구도/각도</a></li>
+          <li><a href="">보정</a></li>
+        </ul>
+      </li>
+      <li>|</li>
+      <li>
+        <a href="#">베이킹 클래스 찾기</a>
+        <ul>
+          <li><a href="">베이킹 클래스 찾기</a></li>
+        </ul>
+      </li>
+      <li>|</li>
+      <li>
+        <a href="#"> 커뮤니티 </a>
+        <ul>
+          <li><a href="">Q&A</a></li>
+          <li><a href="">자유 게시판</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <!-- 우측상단 아이콘 -->
+  <div class="icon">
+    <ul class="icon_ul">
+      <li ><a href="#" class="searchBtn"><i class="fas fa-search"></i></a></li>
+      <li><i class="far fa-user"></i></li>
+      <li><i class="fas fa-bars"></i></li>
+    </ul>
+  </div>
+</header>
+<main>
+  <!-- 왼쪽 배너.-->
+  <div id="leftCategory" >
+    <th:block th:each=" super :${leftMenuTitle}">
+      <div id="leftCategory_title" th:text="${super.cateName}">[super]</div>
+    </th:block>
+    <ul class="leftCategory_ul" >
+      <th:block th:each=" items :${subTitle}">
+        <li class="leftCategory_li" ><a href="" th:href="@{/board/1(cateNum=${items.cateNum})}" id="leftCategory_li" class="leftLi_a" th:text="${items.cateName}">[sub]</a></li>
+      </th:block>
+    </ul>
+  </div>
+  <!-- 본문 -->
+  <!-- 게시물 -->
+  <div class="main_content">
+    <form action="" th:action th:method="Get" th:object="${detailForm}">
+      <div class="contentWrap" th:data-code="${cateNum}">
+        <!-- 게시물 상단 -->
+        <div class="content_top">
+          <!--            <form action="" method="post" th:object="${detailForm}"></form>-->
+          <div class="title" th:text="*{boardTitle}">휘낭시에 레시피</div>
+          <!-- 제목 오른쪽 -->
+          <div class="side">
+            <!-- 등급, 닉네임, 좋아요 -->
+            <div class="side_top">
+              <ul class="top_ul">
+                <!--                  <li><img src="/등급 아이콘/1.png" alt="" width="30px" height="30px"></li>-->
+                <li class="top_ul_nickname" th:text="*{nickname}">알로하</li>
+                <li><i th:data-boardNum="*{boardNum}" class="far fa-heart"></i></li>
+                <li><i th:data-boardNum="*{boardNum}" class="fas fa-heart toggleColorChange"></i></li>
+              </ul>
+            </div>
+            <!-- 게시물 -->
+            <!--              <div class="side_med">-->
+            <!--                <ul class="med_ul">-->
+            <!--                  <li><div><a href="#" class="boardList" th:href="@{/mypage/{board.memberNum}/boardList}" >[[*{nickname}]]의 게시물</a></div></li>-->
+            <!--                </ul>-->
+            <!--              </div>-->
+            <!-- 날짜, 조회수, 아이콘 -->
+            <div class="side_bottom">
+              <div class="upload_date" th:text="*{boardDate}">2022-03-03</div>
+              <div class="hit" th:text="|조회수 *{boardHit}|">조회수 41</div>
+              <div class="menu_icon">
+                <i class="fas fa-bars">
+                  <div class="menu_list">
+                    <div class="side_menu1"
+                         th:if="${session.loginMember != null && session.loginMember.memberNum.equals(board.memberNum)}">
+                      <ul class="side_menu_list">
+                        <li class="side_menu_item"><button href="#" role="button" class="updateBtn" id="boarUBtn">수정</button></li>
+                        <li class="side_menu_item"><button href="#" role="button" class="deleteBtn" id="boardDBtn" th:data-boardNum="${boardNum}", th:data-cateNum="${cateNum}">삭제</button></li>
+                      </ul>
+                    </div>
+                    <div class="side_menu2"
+                         th:unless="${session.loginMember == null || session.loginMember.memberNum.equals(board.memberNum)}">
+                      <a href="#" role="button" class="reportBtn" th:data-reportNum="${reportNum}" th:href="/">신고</a>
+                    </div>
+
+                  </div>
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 게시물 내용 -->
+        <div class="content_main">
+          <img src="https://cdn.pixabay.com/photo/2016/07/01/19/43/pretzels-1491789_960_720.jpg" alt="">
+          <p th:text="*{boardContent}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sed labore ut tempora amet? Id, voluptatibus incidunt quis rem et amet ut excepturi minus, aliquid velit eum numquam quos cupiditate.
+            Laboriosam, quaerat aliquid placeat quia, amet optio totam voluptatum illo nulla autem blanditiis architecto ipsa laborum debitis vel neque modi in cum! Fuga at unde officia tenetur distinctio vel delectus.
+            Aliquam obcaecati eveniet soluta eligendi alias quibusdam recusandae harum, quis cum sed repellendus veniam minus culpa nostrum dolorem assumenda, illum corporis suscipit deserunt error accusantium doloribus minima placeat voluptates. Consequuntur.
+            Beatae pariatur et perferendis, rerum quaerat dolor rem molestiae, architecto ab dolorum magni alias soluta sequi, temporibus adipisci laudantium a. Impedit perferendis quam eveniet cumque exercitationem ipsa, molestiae voluptatum saepe!
+            Quam officia, tempora aliquid voluptas sequi debitis molestias ipsa cum ipsum deserunt, nam, eveniet itaque aut corporis. Molestiae, assumenda in doloribus labore libero ad a laudantium quo, iste reprehenderit maxime?
+            Id alias facere rerum! Qui voluptatum dolorem cupiditate iste quisquam itaque similique, obcaecati rem magni quaerat eveniet quo ad! Natus blanditiis, sit voluptatibus quas quaerat autem dolores optio veritatis odit.
+            Ea modi minima officiis exercitationem nam minus? Excepturi, dicta consequatur? Maiores saepe fuga quod omnis veritatis quo sit repudiandae obcaecati error, quos, necessitatibus iure quia magni aliquid voluptas ducimus earum?
+            Asperiores, perferendis modi voluptatibus fugit quidem distinctio quasi ea, quisquam esse repellat officiis possimus? Hic, ab deserunt modi velit aliquam illo sapiente laborum, dignissimos perspiciatis vitae, a amet repellendus voluptas!
+            Facilis aspernatur illo magni dolores provident! Ullam itaque esse eligendi facere, et at aliquid, sed delectus necessitatibus deleniti iste voluptatibus explicabo harum culpa quisquam exercitationem debitis autem animi. Laboriosam, vel!
+            Repudiandae omnis rerum facere. Fuga, natus illo quas amet error, sequi dolorum impedit dolorem commodi tenetur vitae, animi cum voluptate! Excepturi nam, ratione rerum fuga exercitationem ex dicta possimus consequatur!</p>
+        </div>
+
+      </div>
+      <!-- 댓글 -->
+      <div class="repliedWrap">
+        <!-- 댓글 상단 -->
+        <div class="replied_top">댓글</div>
+        <!-- 댓글 내용 -->
+        <table>
+          <tr th:each="reply : ${replyList}">
+            <td width="20% th:text=${reply.nickname}"><img src="/등급 아이콘/1.png" alt="" width="15px" height="15px">알로하</td>
+            <td width="55%" th:text="${reply.replyContent}">너무 맛있어 보여요~</td>
+            <td width="20%" th:text="${reply.replyDate}">2022-03-04</td>
+            <td width="5%" class="icon">
+              <i class="fas fa-bars" >
+                <div class="menu1" th:unless="${memberNum} == ${reply.memberNum}" >
+                  <ul class="menu_list">
+                    <li class="menu_item"><button class="reportBtn" id="reportRBtn" type="button"><a href="#">신고</a></button></li>
+                  </ul>
+                </div>
+                <div class="menu2" th:if="${memberNum} == ${reply.memberNum}" >
+                  <ul class="menu_list">
+                    <li class="menu_item"><button class="updateBtn" id="replyUBtn" type="button">수정</button></li>
+                    <li class="menu_item"><button class="deleteBtn" id="replyDBtn" type="button" th:data-boardNum="${reply.boardNum}", th:data-cateNum="${reply.cateNum}">삭제</button></li>
+                  </ul>
+                </div>
+              </i>
+            </td>
+          </tr>
+        </table>
+        <!-- 댓글 작성 -->
+        <div class="replied_bottom">
+          <textarea name="reply" id="replyTextArea" cols="150" rows="5" placeholder="댓글을 입력하세요."></textarea>
+          <button class="replyBtn" type="button" th:data-boardNum="${boardNum}"  th:data-cateNum="${cateNum}">등록</button>
+        </div>
+
+        <!--          &lt;!&ndash; 페이징 버튼 &ndash;&gt;-->
+        <!--          <div class="bbs-page">-->
+        <!--            &lt;!&ndash;이전페이지정보&ndash;&gt;-->
+        <!--            <th:block th:if="${pc.prev}">-->
+        <!--              <a class="bbs-page-item" href="" th:href="@{/board/1(cateCode=${param.cateCode})}"><i class="fas fa-angle-double-left"></i></a>-->
+        <!--              <a class="bbs-page-item" href="" th:href="@{/board/{reqPage}(reqPage=${pc.startPage-1}, cateCode=${param.cateCode})}"><i class="fas fa-angle-left"></i></a>-->
+        <!--            </th:block>-->
+
+        <!--            &lt;!&ndash;페이지표시&ndash;&gt;-->
+        <!--            <th:block th:each="pnum : ${#numbers.sequence(pc.startPage,pc.endPage)}">-->
+        <!--              <th:block th:if="${pnum != 0}">-->
+        <!--                <a class="bbs-page-item" th:classappend="${pc.rc.reqPage == pnum} ? 'active'"-->
+        <!--                   href="" th:href="@{/board/{reqPage}(reqPage=${pnum}, cateCode=${param.cateCode})}" th:text="${pnum}">1</a>-->
+        <!--              </th:block>-->
+        <!--            </th:block>-->
+
+        <!--            &lt;!&ndash;다음페이지정보&ndash;&gt;-->
+        <!--            <th:block th:if="${pc.next}">-->
+        <!--              <a class="bbs-page-item" href="" th:href="@{/board/{reqPage}(reqPage=${pc.endPage+1}, cateCode=${param.cateCode})}"><i class="fas fa-angle-right"></i></a>-->
+        <!--              <a class="bbs-page-item" href="" th:href="@{/board/{reqPage}(reqPage=${pc.finalEndPage}, cateCode=${param.cateCode})}"><i class="fas fa-angle-double-right"></i></a>-->
+        <!--            </th:block>-->
+      </div>
+    </form>
+  </div>
+</main>
+<script>
+// 현재 접속해있는 게시판의 카테고리 읽어오기.
+const $main = document.querySelector('main');
+const cateNum = ($main?.dataset.cateNum) ? $main.dataset.cateNum : '';
+
+const $bakingClassWriteBtn = document.getElementById('bakingClassWriteBtn');
+$bakingClassWriteBtn?.addEventListener('click', e => {
+    location.href = `/board/add?cateNum=${cateNum}`;
+
+});
+
+// 헤더 내려오기
+$(function(){
+    const depth1 = $(".menu > li"),
+          header = $("header");
+
+    depth1.mouseenter(function(){
+        header.stop().animate({height:"500px"});
+    }).mouseleave(function(){
+        header.stop().animate({height:"100px"});
+    })
+    console.log('클릭됨');
+}); //ready
+
+//member on/off
+const $memberBtn = document.querySelector(".memberBtn");
+$memberBtn?.addEventListener("click", e=> {
+
+    const $container_member = document.querySelector(".container_member");
+    if($container_member.style.display=="none"){
+        $container_member.style.display = "flex";
+    }else{
+        $container_member.style.display = "none";
+    }
+});
+
+// 검색창 on/off
+const $searchBtn = document.querySelector(".searchBtn");
+$searchBtn?.addEventListener("click", e=> {
+
+    const $container_search = document.querySelector(".container_search");
+    if($container_search.style.display=="none"){
+        $container_search.style.display = "block";
+    }else{
+        $container_search.style.display = "none";
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<div th:fragment="beforeLoginUpm">
+  <ul class="container_member">
+    <li><a href="#" th:href="@{/login}"><span>로그인</span></a></li>
+    <li>|</li>
+    <li><a href="#" th:href="@{/member/add}"><span>회원가입</span></a></li>
+    <li>|</li>
+    <li><a href="#" th:href="@{/findEmailID}"><span>ID/비밀번호 찾기</span></a></li>
+  </ul>
+  <!-- 검색창 -->
+  <div class="container_search">
+        <div class="search">
+          <input class="search textbox" type="text" list="search-options" placeholder="검색어를 입력하세요.">
+          <datalist id="search-options">
+            <option value="딸기 생크림케이크"></option>
+            <option value="초코 생크림케이크"></option>
+            <option value="초코칩 쿠키"></option>
+            <option value="딸기 생크림케이크"></option>
+            <option value="사과 모양 케이크"></option>
+            <option value="파운드케이크"></option>
+        <option value="버터 쿠키"></option>
+      </datalist>
+      <button class="search button">검색</button>
+    </div>
+  </div>
+</div>
+
+<div th:fragment="afterLoginUpm">
+  <ul class="container_member">
+    <li class="upm-menu-profileimg">
+      <img th:src="@{/api/members/{memberId}/pfimg(memberId=${s_memberId)}" alt=""
+           onerror="this.src='/img/noprofile.jpg'"></li>
+    <li>|</li>
+    <li th:text="|[${s_nickname}]|"></li>
+    <li>|</li>
+    <li class="mypage"><a href="#" th:href="@{/member/mypage}"><span>마이 페이지</span></a></li>
+    <li>|</li>
+    <li class="logout"><a href="#" th:href="@{/logout}"><span>로그아웃</span></a></li>
+  </ul>
+  <!-- 검색창 -->
+  <div class="container_search">
+    <div class="search">
+      <input class="search textbox" type="text" placeholder="검색어를 입력하세요.">
+      <button class="search button">검색</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

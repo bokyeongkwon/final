@@ -1,0 +1,187 @@
+@charset "utf-8";
+
+*{
+  font-family: 'Jua', sans-serif;
+  padding: 0;
+  margin: 0;
+  /* font-family: 'Gamja Flower', cursive; */
+  color: #594440;
+  background-color: #fcf8f4;
+ }
+
+ a{
+  color: #000;
+  text-decoration: none;
+ }
+
+ header{
+  height: 100px;
+  width: 80%;
+  min-width: 1300px;
+  margin: 15px auto;
+  display: flex;
+  justify-content: space-between;
+ }
+
+ /* 상단 메뉴, 아이콘 모양 */
+ .icon_ul,
+ .menu{
+   height: 100px;
+   list-style: none;
+   display: flex;
+   align-items: center;
+ }
+ .menu>li{
+   height: 2em;
+   margin:8px 12px;
+   font-size: 25px;
+ }
+
+  /* 메뉴 박스 */
+  .category{position: relative;}
+
+ /* 드롭다운 구현 */
+  .dropdown-content{
+      /* 숨기기 */
+      display: none;
+      position: absolute;
+      z-index: 1;
+
+  }
+  /* 펼치기 */
+  .category:hover .dropdown-content {
+      transition: all .5s ease-out;
+      /* background-color: black; */
+      width: 100%; height: inherit;
+      display: block;
+      transition: ease-in-out .5s;
+      display: grid;
+      grid-template-columns: 1fr 1fr 0.75fr 1.3fr 0.65fr;
+  }
+  .depth2{
+      display: flex; flex-direction: column;
+      width: inherit;
+      height: 50px; line-height: 50px;
+      margin: 0 auto;
+      font-size: 20px;
+      text-align: center;
+  }
+  /* 마우스 호버링 */
+  .dropdown-content > div > a:hover{ background-color: black; color: white; }
+    /* 우측 상단 아이콘 */
+    .icon li{
+      margin:8px 12px;
+      font-size: 30px;
+      }
+
+
+   /* 검색창 */
+   .search{
+    height: 40px;
+    width: 25%;
+    margin: 0 auto;
+    display: flex;
+   }
+
+   .search.textbox{
+    height: 30px;
+    width: 80%;
+    text-align:start;
+    font-size: 25px;
+   }
+
+   .search.button{
+    height: 35px;
+    width: 50px;
+    padding-left: 10px;
+    line-height: 35px;
+    font-size: 16px;
+    background-color: #e5d0b5;
+   }
+
+     /* m5 메인 박스 */
+   main {
+    height: 1400px;
+    width: 90%;
+    min-width: 1000px;
+    margin: auto;
+    margin-top: 100px;
+
+    display: flex;
+   }
+
+
+ /* 페이징 */
+ .boardPaging{
+   width: inherit;
+   outline: 1px red solid;
+   margin: 10px auto 0 auto;
+
+ }
+ .pageNo_wrap{
+   display: flex;
+   justify-content: space-evenly;
+
+ }
+ .pageNo{
+   margin: auto;
+   text-align: center;
+   font-size: 16pt;
+
+   border: 1px solid #594440;
+ }
+
+
+   /* 페이지 검색창 */
+   #page_search_bar {
+    width: 100%;
+    text-align: center;
+   }
+
+   #scan_page {
+    width: 65px;
+    margin-right: 5px;
+   }
+
+   #page_search_btn {
+    margin-left: 5px;
+    color: #594440;
+    background-color: #e5d0b5;
+   }
+
+   /* 게시글 검색 */
+   #post_search_bar {
+    height: 22px;
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: right;
+   }
+
+   #scan_post {
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+   }
+
+   #post_search_btn {
+    width: 40px;
+    margin-left: 5px;
+    background-color: #e5d0b5;
+   }
+
+   /* 최하단 */
+   footer{
+    min-width: 1000px;
+    border-top: 1px solid darkgreen;
+   }
+
+   footer>ul{
+    /* background-color: darkgrey; */
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+   }

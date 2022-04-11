@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>비밀번호 찾기(이메일)</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/login/findEmailPW.css">
+  <script src="https://kit.fontawesome.com/69fdf7daef.js" crossorigin="anonymous"></script>
+  <!-- 라디오버튼 선택해 div 보여주기 -->
+  <script>
+    function div_show(selectList) {
+      const $obj1 = document.getElementById("type1"); // 휴대폰으로 찾기
+      const $obj2 = document.getElementById("type2"); // 이메일로 찾기
+      // 휴대폰으로 찾기
+      if (selectList == "0") {
+        $obj1.style.display = "block";
+        $obj2.style.display = "none";
+      // 이메일로 찾기
+      } else if (selectList == "1") {
+        $obj1.style.display = "none";
+        $obj2.style.display = "block";
+      }
+    }
+  </script>
+  <title>비밀번호 찾기(이메일)</title>
+</head>
+<body>
+<!-- 상단 메뉴 -->
+<header>
+<!--  <div class="topMenu">-->
+<!--    <a class="" href="#">아이디 찾기</a>-->
+<!--    <a class="" href="#">홈으로</a>-->
+<!--  </div>-->
+</header>
+<!-- 비밀번호 찾기 시작-->
+<!-- 헤드(여백 내용) -->
+<div class="head_blank">
+  <div class="order">
+    <div class="orderTop">
+      <div class="big">비밀번호 찾기&nbsp;|&nbsp; <a href="/" th:href="@{/}">홈으로 돌아가기</a></div>
+    </div>
+    <hr>
+    <div class="small1">비밀번호를 찾기 위한 방법을 선택해주세요.</div>
+  </div>
+</div>
+<!-- 타이틀 내용 -->
+<form action="" th:action="@{/login/findEmailID}">
+
+
+<article>
+  <div class="pwFind-top">
+    <span class="text1">HOME CA:BE 비밀번호 찾기</span>
+  </div>
+  <!-- 항목 선택 -->
+  <div class="findPW">
+    <ul>
+      <!-- 휴대폰으로 찾기 선택 -->
+      <li class="findPW_select">
+        <input type="radio"  name="findPW_type1" id="findPW_type_1" onclick="div_show('0');" >
+        <label for="findPW_type_1"><span class="text2">&nbsp;휴대폰으로 찾기</span></label>
+      </li>
+      <!-- 이메일로 찾기 선택 -->
+      <li class="findPW_select">
+        <input type="radio" checked name="findPW_type1" id="findPW_type_2" onclick="div_show('1');" >
+        <label for="findPW_type_2"><span class="text3">&nbsp;이메일로 찾기</span></label>
+      </li>
+    </ul>
+  </div>
+  <!-- 선택 항목별 내용 -->
+  <!-- 휴대폰으로 찾기 내용 -->
+  <div id="type1" style="display:block">
+    <ul class="pwFind-phoneText">
+      <li>
+        <input type="text" class="text-name" placeholder=" 아이디">
+      </li>
+      <li>
+        <input type="text" class="textInfo" placeholder="  - 없이 입력">
+      </li>
+      <!-- 선택1 버튼 -->
+      <button type="submit" class="findPW-button">확인</button>
+    </ul>
+  </div>
+  <!-- 이메일로 찾기 내용 -->
+  <div id="type2" style="display:none">
+    <ul class="pwFind-emailText">
+      <li>
+        <input type="text" class="text-name" placeholder=" 아이디">
+      </li>
+      <li>
+        <input type="text" class="textInfo" placeholder=" 이메일">
+      </li>
+      <!-- 선택2 버튼 -->
+      <button type="submit" class="findPW-button">확인</button>
+    </ul>
+  </div>
+  </div>
+</article>
+<!-- 하단 -->
+<footer>
+  <div class="bottom-text">
+    <div>아이디가 기억나지 않는다면?&nbsp;&nbsp;</div>
+    <div><a href="#" th:href="@{/findEmailID}">아이디 찾기&nbsp;</a></div>
+  </div>
+</footer>
+</body>
+
+</html>

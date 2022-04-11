@@ -1,0 +1,203 @@
+*{  
+  padding: 0;
+  margin: 0;
+  font-family: 'Jua', sans-serif;
+}
+
+a{
+  color: #000;
+}
+body{
+  background-color: #fcf8f4;
+  color: #594440;
+}
+header{
+  height: 100px;
+  width: 80%;
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul{
+  list-style: none;
+  display: flex;
+}
+
+.menu>li{
+  margin:8px 12px;
+  font-size: 25px;
+}
+
+.icon li{
+  margin:8px 12px;
+  font-size: 30px;
+}
+
+.search{
+  width: 25%;
+  height: 40px;
+  margin: 0 auto;
+  display: flex;
+  /* border: 1px solid black; */
+}
+
+.search.textbox{
+  /* border: 1px solid black; */
+  width: 80%;
+  height: 30px;
+  font-size: 25px;
+  text-align:start;
+}
+
+.search.button{
+  width: 50px;
+  height: 35px;
+  line-height: 35px;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+.button-wrap{
+  display: flex;
+
+}
+main{
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+section{
+  width: 80%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section *{
+  margin: 5px 0;
+}
+.sectionINsection{
+  /* border: black 1px solid; */
+  padding: 10px;
+}
+/* HOME CA:BE 글쓰기//등록 */
+.section_header{
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+/* 게시판선택, 레시피 출처 선택 BOX */
+.임시{
+  display: flex;
+  justify-content: space-between;
+  align-items :center
+  
+}
+/* 게시판선택 */
+#boardCho{
+  height: min-content;
+}
+/* 게시물 제목 쓰기 */
+#inputTitle{
+  width: 100%;
+  box-sizing: border-box;
+}
+/* 게시물 첨부 파일 */
+.input{
+  background-color: gainsboro;
+  border: gray 1px solid;
+  padding: 2px;
+  display: flex;
+}
+/* 게시물 첨부 파일 라벨 */
+.input>label{
+  font-size: 0.5em;
+  text-align: center;
+  margin: 5px 40px;
+}
+/* 폰트설정 */
+.contentFont{
+  padding: 2px;
+  background-color: gainsboro;
+  border: gray 1px solid;
+}
+/* 폰트버튼 들 */
+.fontButton{
+  width: 20px;
+  background-color: gainsboro;
+  border-color: gainsboro;
+  border-style: none;
+}
+/* 본문내용입력창 */
+#contentText{
+  width: 100%;
+  height: 500px;
+  box-sizing: border-box;
+}
+/* 태그입력창 */
+#tagAdd{
+  width: 100%;
+}
+/* url 주소입력창 */
+#url{
+  width: 100%;
+}
+.section_nav{
+  width: 20%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+/* 공개 설정 */
+.openopstion{
+  width: 95%;
+  margin: 5px;
+  margin-top: 100px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  background-color: silver;
+}
+/* 공개 설정 라벨 */
+.openopstion>label{
+  margin: 10px;
+  text-align: left;
+}
+/* 허용범위 설정창 */
+.commentOpstion{
+  width: 95%;
+  margin: 5px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  background-color: silver;
+}
+/* 허용범위 설정 라벨 */
+.commentOpstion>label{
+  margin: 10px;
+  text-align: left;
+}
+/* 하부 메뉴 */
+footer{
+  border: 1px solid darkgreen;
+}
+/* 개인정보 취급 방침,회원약관... */
+footer>ul{
+  /* background-color: darkgrey; */
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* ckeditor style 지정 */
+
+#bcontent {
+    display:none;
+
+}
+.ck-editor__editable{min-height:30rem; max-height:30rem;}

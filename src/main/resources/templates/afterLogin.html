@@ -1,0 +1,416 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragment/head.html::fragment-head"></head>
+<body>
+<header th:replace="fragment/menu.html::fragment-global"></header>
+<!--아이콘/검색창-->
+<div th:replace="fragment/uppermost.html::beforeLoginUpm"></div>
+
+<!-- 홈 메인 사진 -->
+<article><div class="recommend"></div></article>
+
+<!-- 공지사항 -->
+<section>
+  <div class="announce annoucne1">
+    <div class="announceIcon"><i class="fas fa-bullhorn"></i></div>
+    <div class="announceText"><a href="#" th:href="@{/login}">소개</a></div>
+  </div>
+  <div class="announce annoucne2">
+    <div class="announceIcon"><i class="fas fa-bullhorn"></i></div>
+    <div class="announceText"><a href="#" th:href="@{/login}">이용 수칙</a></div>
+  </div>
+  <div class="announce annoucne3">
+    <div class="announceIcon"><i class="fas fa-bullhorn"></i></div>
+    <div class="announceText"><a href="#" th:href="@{/login}">양식</a></div>
+  </div>
+</section>
+
+<!-- 랭킹 게시글 -->
+<main >
+  <form action="#" >
+    <!-- 상단 3개 -->
+    <div class="post first">
+      <div class="content">
+        <!-- 제목 -->
+        <div class="post1 name"><b>제과</b></div>
+        <!-- 리스트 -->
+        <div class="post1 mainbox">
+          <ul class="rank">
+            <li>
+              <div class="post1 number">1.</div>
+              <div class="post1 picture" >
+                <img src="https://cdn.pixabay.com/photo/2016/05/04/19/05/cookies-1372607_1280.jpg"  alt="">
+              </div>
+              <!-- 사진 제외 내용물 -->
+              <div class="rightText">
+                <div class="post1 title">촉촉한 초코칩쿠키 만들기</div>
+                <div class="post1 nickname" >made By.소라</div>
+              </div>
+            </li>
+            <li>
+              <div class="post1 number">2.</div>
+              <div class="post1 picture">
+                <img src="https://cdn.pixabay.com/photo/2018/02/24/11/55/cream-3177906_1280.jpg"  alt="">
+              </div>
+
+              <div class="rightText">
+                <div class="post1 title">크림 디저트 딸기 푸드</div>
+                <div class="post1 nickname">made By.봄</div>
+              </div>
+            </li>
+            <li>
+              <div class="post1 number">3.</div>
+              <div class="post1 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/05/07/15/08/cookie-756601_1280.jpg"  alt="">
+              </div>
+              <div class="rightText">
+                <div class="post1 title">당이 필요할때 당 폭발 흰가루 마약쿠키 만들기</div>
+                <div class="post1 nickname">made By.Jaeyeop</div>
+              </div>
+            </li>
+            <li>
+              <div class="post1 number">4.</div>
+              <div class="post1 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+              </div>
+              <div class="rightText">
+                <div class="post1 title">단단한 바게트빵 만들기</div>
+                <div class="post1 nickname">made By.하태우</div>
+              </div>
+            </li>
+            <li>
+              <div class="post1 number">5.</div>
+              <div class="post1 picture">
+                <img src="https://cdn.pixabay.com/photo/2016/07/31/16/27/cheesecake-1559403_1280.jpg"  alt="">
+              </div>
+              <div class="rightText">
+                <div class="post1 title">초코 블루베리 케이크 만들기</div>
+                <div class="post1 nickname">made By.bokyeong</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <div class="post2 name"><b>제빵</b></div>
+        <div class="post2 mainbox">
+          <ul class="rank">
+            <li>
+              <div class="post2 number">1.</div>
+              <div class="post2 picture">
+                <img src="https://cdn.pixabay.com/photo/2014/08/25/15/32/cream-puffs-427181_1280.jpg"  alt="">
+
+              </div>
+              <div class="rightText">
+                <div class="post2 title">슈크림빵 만들기</div>
+                <div class="post2 nickname">made By.소라</div>
+              </div>
+            </li>
+            <li>
+              <div class="post2 number">2.</div>
+              <div class="post2 picture">
+                <img src="https://cdn.pixabay.com/photo/2020/02/21/06/09/meringue-cake-4866598_1280.jpg"  alt="">
+
+              </div>
+              <div class="rightText">
+                <div class="post2 title">머랭 케이크 만들기</div>
+                <div class="post2 nickname">made By.봄</div>
+              </div>
+            </li>
+            <li>
+              <div class="post2 number">3.</div>
+              <div class="post2 picture">
+                <img src="https://cdn.pixabay.com/photo/2019/12/25/17/55/cinnamon-roll-4719023_1280.jpg"  alt="">
+
+              </div>
+              <div class="rightText">
+                <div class="post2 title">시나몬 롤 시나몬 빵 만들기</div>
+                <div class="post2 nickname">made By.하태우</div>
+              </div>
+            </li>
+            <li>
+              <div class="post2 number">4.</div>
+              <div class="post2 picture">
+                <img src="https://cdn.pixabay.com/photo/2019/03/24/14/23/bread-4077812_1280.jpg"  alt="">
+
+              </div>
+              <div class="rightText">
+                <div class="post2 title">크로아상 만들기</div>
+                <div class="post2 nickname">made By.bokyeong</div>
+              </div>
+            </li>
+            <li>
+              <div class="post2 number">5.</div>
+              <div class="post2 picture">
+                <img src="https://cdn.pixabay.com/photo/2018/07/01/19/50/muffin-3510308_1280.jpg"  alt="">
+
+              </div>
+              <div class="rightText">
+                <div class="post2 title">머핀 케이크 만들기</div>
+                <div class="post2 nickname">made By.SSoooda</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <div class="post3 name"><b>음료</b></div>
+        <div class="post3 mainbox">
+          <ul class="rank">
+            <li>
+              <div class="post3 number">1.</div>
+              <div class="post3 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="rightText">
+                <div class="post3 title">제목1</div>
+                <div class="post3 nickname">닉네임1</div>
+              </div>
+            </li>
+            <li>
+              <div class="post1 number">2.</div>
+              <div class="post3 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="rightText">
+                <div class="post3 title">제목2</div>
+                <div class="post3 nickname">닉네임2</div>
+              </div>
+            </li>
+            <li>
+              <div class="post3 number">3.</div>
+              <div class="post3 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="rightText">
+                <div class="post3 title">제목3</div>
+                <div class="post3 nickname">닉네임3</div>
+              </div>
+            </li>
+            <li>
+              <div class="post3 number">4.</div>
+              <div class="post3 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="rightText">
+                <div class="post3 title">제목4</div>
+                <div class="post3 nickname">닉네임4</div>
+              </div>
+            </li>
+            <li>
+              <div class="post3 number">5.</div>
+              <div class="post3 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="rightText">
+                <div class="post3 title">제목5</div>
+                <div class="post3 nickname">닉네임5</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- 하단 3개 -->
+    <div class="post second">
+      <div class="content">
+        <div class="post4 name"><b>노오븐 베이킹</b></div>
+        <div class="post4 mainbox">
+          <ul class="rank">
+            <li>
+              <div class="post4 number">1.</div>
+              <div class="post4 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="textRight">
+                <div class="post4 title">제목1</div>
+                <div class="post4 nickname">닉네임1</div>
+              </div>
+            </li>
+            <li>
+              <div class="post4 number">2.</div>
+              <div class="post4 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="textRight">
+                <div class="post4 title">제목2</div>
+                <div class="post4 nickname">닉네임2</div>
+              </div>
+            </li>
+            <li>
+              <div class="post4 number">3.</div>
+              <div class="post4 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="textRight">
+                <div class="post4 title">제목3</div>
+                <div class="post4 nickname">닉네임3</div>
+              </div>
+            </li>
+            <li>
+              <div class="post4 number">4.</div>
+              <div class="post4 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="textRight">
+                <div class="post4 title">제목4</div>
+                <div class="post4 nickname">닉네임4</div>
+              </div>
+            </li>
+            <li>
+              <div class="post4 number">5.</div>
+              <div class="post4 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="textRight">
+                <div class="post4 title">제목5</div>
+                <div class="post4 nickname">닉네임5</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <div class="post5 name"><b>사진 팁</b></div>
+        <div class="post5 mainbox">
+          <ul class="rank">
+            <li>
+              <div class="post5 number">1.</div>
+              <div class="post5 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="textRight">
+                <div class="post5 title">제목1</div>
+                <div class="post5 nickname">닉네임1</div>
+              </div>
+            </li>
+            <li>
+              <div class="post5 number">2.</div>
+              <div class="post5 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="textRight">
+                <div class="post5 title">제목2</div>
+                <div class="post5 nickname">닉네임2</div>
+              </div>
+            </li>
+            <li>
+              <div class="post5 number">3.</div>
+              <div class="post5 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="textRight">
+                <div class="post5 title">제목3</div>
+                <div class="post5 nickname">닉네임3</div>
+              </div>
+            </li>
+            <li>
+              <div class="post5 number">4.</div>
+              <div class="post5 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="textRight">
+                <div class="post5 title">제목4</div>
+                <div class="post5 nickname">닉네임4</div>
+              </div>
+            </li>
+            <li>
+              <div class="post5 number">5.</div>
+              <div class="post5 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="textRight">
+                <div class="post5 title">제목5</div>
+                <div class="post5 nickname">닉네임5</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <div class="post6 name"><b>최신 글</b></div>
+        <div class="post6 mainbox">
+          <ul class="rank">
+            <li>
+              <div class="post6 number">1.</div>
+              <div class="post6 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="textRight">
+                <div class="post6 title">제목1</div>
+                <div class="post6 nickname">닉네임1</div>
+              </div>
+            </li>
+            <li>
+              <div class="post6 number">2.</div>
+              <div class="post6 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="textRight">
+                <div class="post6 title">제목2</div>
+                <div class="post6 nickname">닉네임2</div>
+              </div>
+            </li>
+            <li>
+              <div class="post6 number">3.</div>
+              <div class="post6 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="textRight">
+                <div class="post6 title">제목3</div>
+                <div class="post6 nickname">닉네임3</div>
+              </div>
+            </li>
+            <li>
+              <div class="post6 number">4.</div>
+              <div class="post6 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="textRight">
+                <div class="post6 title">제목4</div>
+                <div class="post6 nickname">닉네임4</div>
+              </div>
+            </li>
+            <li>
+              <div class="post5 number">5.</div>
+              <div class="post6 picture">
+                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+
+              </div>
+              <div class="textRight">
+                <div class="post6 title">제목5</div>
+                <div class="post6 nickname">닉네임5</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </form>
+</main>
+
+<!-- 최하단 -->
+<footer th:replace="fragment/footer.html::fragment-footer"></footer>
+</body>
+
+</html>
