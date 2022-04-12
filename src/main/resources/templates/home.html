@@ -1,457 +1,463 @@
 <!DOCTYPE html>
 <html lang="ko"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragment/head">
 
 <head th:replace="fragment/head.html::fragment-head"></head>
+  <th:block layout:fragment="page_css">
+    <link rel="stylesheet" href="" th:href="@{/css/home/home.css}">
+  </th:block>
 <body>
 <header th:replace="fragment/menu.html::fragment-global"></header>
 <!--아이콘/검색창-->
 <div th:replace="fragment/uppermost.html::beforeLoginUpm"></div>
 
 <!-- 홈 메인 사진 -->
-<article><div class="recommend"></div></article>
+<div layout:fragment="content">
+  <article><div class="recommend"></div></article>
 
-<!-- 공지사항 -->
-<section>
-  <div class="announce annoucne1">
-    <div class="announceIcon"><i class="fas fa-bullhorn"></i></div>
-    <div class="announceText"><a href="#" th:href="@{/login}">소개</a></div>
-  </div>
-  <div class="announce annoucne2">
-    <div class="announceIcon"><i class="fas fa-bullhorn"></i></div>
-    <div class="announceText"><a href="#" th:href="@{/login}">이용 수칙</a></div>
-  </div>
-  <div class="announce annoucne3">
-    <div class="announceIcon"><i class="fas fa-bullhorn"></i></div>
-    <div class="announceText"><a href="#" th:href="@{/login}">양식</a></div>
-  </div>
-</section>
-
-<!-- 랭킹 게시글 -->
-<main >
-  <form action="#" >
-    <!-- 상단 3개 -->
-    <div class="post first">
-      <div class="content">
-        <!-- 제목 -->
-        <div class="post1 name"><b>제과</b></div>
-        <!-- 리스트 -->
-        <div class="post1 mainbox">
-          <ul class="rank">
-            <li>
-              <div class="post1 number">1.</div>
-              <div class="post1 picture" >
-                <img src="https://cdn.pixabay.com/photo/2016/05/04/19/05/cookies-1372607_1280.jpg"  alt="">
-              </div>
-              <!-- 사진 제외 내용물 -->
-              <div class="rightText">
-                <a href="#">
-                <div class="post1 title">촉촉한 초코칩쿠키 만들기</div>
-                <div class="post1 nickname" >made By.소라</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post1 number">2.</div>
-              <div class="post1 picture">
-                <img src="https://cdn.pixabay.com/photo/2018/02/24/11/55/cream-3177906_1280.jpg"  alt="">
-              </div>
-
-              <div class="rightText">
-                <a href="#">
-                <div class="post1 title">크림 디저트 딸기 푸드</div>
-                <div class="post1 nickname">made By.봄</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post1 number">3.</div>
-              <div class="post1 picture">
-                <img src="https://cdn.pixabay.com/photo/2015/05/07/15/08/cookie-756601_1280.jpg"  alt="">
-              </div>
-              <div class="rightText">
-                <div class="post1 title">당이 필요할때 당 폭발 흰가루 마약쿠키 만들기</div>
-                <div class="post1 nickname">made By.Jaeyeop</div>
-              </div>
-            </li>
-            <li>
-              <div class="post1 number">4.</div>
-              <div class="post1 picture">
-                <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post1 title">단단한 바게트빵 만들기</div>
-                <div class="post1 nickname">made By.하태우</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post1 number">5.</div>
-              <div class="post1 picture">
-                <img src="https://cdn.pixabay.com/photo/2016/07/31/16/27/cheesecake-1559403_1280.jpg"  alt="">
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post1 title">초코 블루베리 케이크 만들기</div>
-                <div class="post1 nickname">made By.bokyeong</div>
-                </a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="content">
-        <div class="post2 name"><b>제빵</b></div>
-        <div class="post2 mainbox">
-          <ul class="rank">
-            <li>
-              <div class="post2 number">1.</div>
-              <div class="post2 picture">
-                <img src="https://cdn.pixabay.com/photo/2014/08/25/15/32/cream-puffs-427181_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post2 title">슈크림빵 만들기</div>
-                <div class="post2 nickname">made By.소라</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post2 number">2.</div>
-              <div class="post2 picture">
-                <img src="https://cdn.pixabay.com/photo/2020/02/21/06/09/meringue-cake-4866598_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post2 title">머랭 케이크 만들기</div>
-                <div class="post2 nickname">made By.봄</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post2 number">3.</div>
-              <div class="post2 picture">
-                <img src="https://cdn.pixabay.com/photo/2019/12/25/17/55/cinnamon-roll-4719023_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post2 title">시나몬 롤 시나몬 빵 만들기</div>
-                <div class="post2 nickname">made By.하태우</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post2 number">4.</div>
-              <div class="post2 picture">
-                <img src="https://cdn.pixabay.com/photo/2019/03/24/14/23/bread-4077812_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post2 title">크로아상 만들기</div>
-                <div class="post2 nickname">made By.bokyeong</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post2 number">5.</div>
-              <div class="post2 picture">
-                <img src="https://cdn.pixabay.com/photo/2018/07/01/19/50/muffin-3510308_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post2 title">머핀 케이크 만들기</div>
-                <div class="post2 nickname">made By.SSoooda</div>
-                </a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="content">
-        <div class="post3 name"><b>음료</b></div>
-        <div class="post3 mainbox">
-          <ul class="rank">
-            <li>
-              <div class="post3 number">1.</div>
-              <div class="post3 picture">
-                <img src="https://cdn.pixabay.com/photo/2017/05/12/08/29/coffee-2306471_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post3 title">라떼는 말이야! 라떼 만들기</div>
-                <div class="post3 nickname">made By.소라</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post1 number">2.</div>
-              <div class="post3 picture">
-                <img src="https://cdn.pixabay.com/photo/2020/07/09/10/45/coffee-5386871_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post3 title">아이스 아메리카노 만들기</div>
-                <div class="post3 nickname">made By.봄</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post3 number">3.</div>
-              <div class="post3 picture">
-                <img src="https://cdn.pixabay.com/photo/2014/12/05/02/30/tea-557448_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post3 title">따뜻한 홍차 한잔 하실래요?</div>
-                <div class="post3 nickname">made By.Jaeyeop</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post3 number">4.</div>
-              <div class="post3 picture">
-                <img src="https://cdn.pixabay.com/photo/2022/02/15/00/40/lemonade-7014122_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post3 title">새콤달콤 레몬에이드 만들기</div>
-                <div class="post3 nickname">made By.하태우</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post3 number">5.</div>
-              <div class="post3 picture">
-                <img src="https://cdn.pixabay.com/photo/2015/06/02/13/58/pink-lemonade-795029_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <div class="post3 title">누가 요즘 그냥 레몬에이드를 먹습니까? 핑크 레몬에이드 만들기</div>
-                <div class="post3 nickname">made By.bokyeong</div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+  <!-- 공지사항 -->
+  <section>
+    <div class="announce annoucne1">
+      <div class="announceIcon"><i class="fas fa-bullhorn"></i></div>
+      <div class="announceText"><a href="#" th:href="@{/login}">소개</a></div>
     </div>
-    <!-- 하단 3개 -->
-    <div class="post second">
-      <div class="content">
-        <div class="post4 name"><b>노오븐 베이킹</b></div>
-        <div class="post4 mainbox">
-          <ul class="rank">
-            <li>
-              <div class="post4 number">1.</div>
-              <div class="post4 picture">
-                <img src="https://cdn.pixabay.com/photo/2015/09/09/19/49/dessert-932884_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post4 title">티라미수 만들기</div>
-                <div class="post4 nickname">made By.소라</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post4 number">2.</div>
-              <div class="post4 picture">
-                <img src="https://cdn.pixabay.com/photo/2014/07/10/13/34/sponge-cake-389071_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post4 title">카스테라 만들기</div>
-                <div class="post4 nickname">made By.봄</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post4 number">3.</div>
-              <div class="post4 picture">
-                <img src="https://cdn.pixabay.com/photo/2020/12/06/15/52/cookies-5809181_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post4 title">노오븐 쿠키 만들기</div>
-                <div class="post4 nickname">made By.Jaeyeop</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post4 number">4.</div>
-              <div class="post4 picture">
-                <img src="https://cdn.pixabay.com/photo/2013/09/05/19/31/donuts-179248_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <div class="post4 title">알록달록 도넛 오븐없이 간단하게 만들기</div>
-                <div class="post4 nickname">닉네임4</div>
-              </div>
-            </li>
-            <li>
-              <div class="post4 number">5.</div>
-              <div class="post4 picture">
-                <img src="https://cdn.pixabay.com/photo/2020/01/16/02/00/trick-or-treat-4769452_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <div class="post4 title">노오븐이 이것도 된다구? 찹쌀떡 만들기</div>
-                <div class="post4 nickname">made By.bokyeong</div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="content">
-        <div class="post5 name"><b>사진 팁</b></div>
-        <div class="post5 mainbox">
-          <ul class="rank">
-            <li>
-              <div class="post5 number">1.</div>
-              <div class="post5 picture">
-                <img src="https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post5 title">사진의 구도이해(인물편)</div>
-                <div class="post5 nickname">made By.소라</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post5 number">2.</div>
-              <div class="post5 picture">
-                <img src="https://cdn.pixabay.com/photo/2014/10/16/09/15/lens-490806_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post5 title">더 맛있게 찍는 방법!</div>
-                <div class="post5 nickname">made By.봄</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post5 number">3.</div>
-              <div class="post5 picture">
-                <img src="https://cdn.pixabay.com/photo/2014/11/03/10/44/camera-514992_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <div class="post5 title">구도를 알면 더 맛있어 보인다 사진찍는 방법!</div>
-                <div class="post5 nickname">made By.Jaeyeop</div>
-              </div>
-            </li>
-            <li>
-              <div class="post5 number">4.</div>
-              <div class="post5 picture">
-                <img src="https://cdn.pixabay.com/photo/2013/11/28/10/02/camera-219958_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post5 title">사진을 잘 찍는건 어려운게 아니랍니다.</div>
-                <div class="post5 nickname">made By.하태우</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post5 number">5.</div>
-              <div class="post5 picture">
-                <img src="https://cdn.pixabay.com/photo/2016/03/27/19/43/samsung-1283938_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <div class="post5 title">음식사진은 갤럭시! 갤럭시로 베이커리 사진 잘찍는방법</div>
-                <div class="post5 nickname">made By.bokyeong</div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="content">
-        <div class="post6 name"><b>최신 글</b></div>
-        <div class="post6 mainbox">
-          <ul class="rank">
-            <li>
-              <div class="post6 number">1.</div>
-              <div class="post6 picture">
-                <img src="https://cdn.pixabay.com/photo/2016/11/22/18/52/cake-1850011_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post6 title">초콜릿 케이크 만들어주기</div>
-                <div class="post6 nickname">made By.소라</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post6 number">2.</div>
-              <div class="post6 picture">
-                <img src="https://cdn.pixabay.com/photo/2021/09/18/20/50/truffles-6636081_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <a href="#">
-                <div class="post6 title">코코아 초콜릿 만들기</div>
-                <div class="post6 nickname">made By.봄</div>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="post6 number">3.</div>
-              <div class="post6 picture">
-                <img src="https://cdn.pixabay.com/photo/2013/09/18/18/24/chocolate-183543_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <div class="post6 title">안생겨요.못받아요. 스스로에게 선물하는 다크 초콜릿</div>
-                <div class="post6 nickname">made By.하태우</div>
-              </div>
-            </li>
-            <li>
-              <div class="post6 number">4.</div>
-              <div class="post6 picture">
-                <img src="https://cdn.pixabay.com/photo/2016/10/30/09/30/hot-chocolate-1782623_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <div class="post6 title">핫 초코도 초코잖아? 핫초코 만들기</div>
-                <div class="post6 nickname">made By.bokyeong</div>
-              </div>
-            </li>
-            <li>
-              <div class="post5 number">5.</div>
-              <div class="post6 picture">
-                <img src="https://cdn.pixabay.com/photo/2014/10/16/13/20/chocolates-491165_1280.jpg"  alt="">
-
-              </div>
-              <div class="rightText">
-                <div class="post6 title">남자친구에게 전해줄 정성스런 초콜릿 만들기</div>
-                <div class="post6 nickname">made By.SSoooda</div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div class="announce annoucne2">
+      <div class="announceIcon"><i class="fas fa-bullhorn"></i></div>
+      <div class="announceText"><a href="#" th:href="@{/login}">이용 수칙</a></div>
     </div>
-  </form>
-</main>
+    <div class="announce annoucne3">
+      <div class="announceIcon"><i class="fas fa-bullhorn"></i></div>
+      <div class="announceText"><a href="#" th:href="@{/login}">양식</a></div>
+    </div>
+  </section>
 
+  <!-- 랭킹 게시글 -->
+  <main >
+    <form action="#" >
+      <!-- 상단 3개 -->
+      <div class="post first">
+        <div class="content">
+          <!-- 제목 -->
+          <div class="post1 name"><b>제과</b></div>
+          <!-- 리스트 -->
+          <div class="post1 mainbox">
+            <ul class="rank">
+              <li>
+                <div class="post1 number">1.</div>
+                <div class="post1 picture" >
+                  <img src="https://cdn.pixabay.com/photo/2016/05/04/19/05/cookies-1372607_1280.jpg"  alt="">
+                </div>
+                <!-- 사진 제외 내용물 -->
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post1 title">촉촉한 초코칩쿠키 만들기</div>
+                  <div class="post1 nickname" >made By.소라</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post1 number">2.</div>
+                <div class="post1 picture">
+                  <img src="https://cdn.pixabay.com/photo/2018/02/24/11/55/cream-3177906_1280.jpg"  alt="">
+                </div>
+
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post1 title">크림 디저트 딸기 푸드</div>
+                  <div class="post1 nickname">made By.봄</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post1 number">3.</div>
+                <div class="post1 picture">
+                  <img src="https://cdn.pixabay.com/photo/2015/05/07/15/08/cookie-756601_1280.jpg"  alt="">
+                </div>
+                <div class="rightText">
+                  <div class="post1 title">당이 필요할때 당 폭발 흰가루 마약쿠키 만들기</div>
+                  <div class="post1 nickname">made By.Jaeyeop</div>
+                </div>
+              </li>
+              <li>
+                <div class="post1 number">4.</div>
+                <div class="post1 picture">
+                  <img src="https://cdn.pixabay.com/photo/2015/03/17/18/34/baguette-678113_1280.jpg"  alt="">
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post1 title">단단한 바게트빵 만들기</div>
+                  <div class="post1 nickname">made By.하태우</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post1 number">5.</div>
+                <div class="post1 picture">
+                  <img src="https://cdn.pixabay.com/photo/2016/07/31/16/27/cheesecake-1559403_1280.jpg"  alt="">
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post1 title">초코 블루베리 케이크 만들기</div>
+                  <div class="post1 nickname">made By.bokyeong</div>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+          <div class="post2 name"><b>제빵</b></div>
+          <div class="post2 mainbox">
+            <ul class="rank">
+              <li>
+                <div class="post2 number">1.</div>
+                <div class="post2 picture">
+                  <img src="https://cdn.pixabay.com/photo/2014/08/25/15/32/cream-puffs-427181_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post2 title">슈크림빵 만들기</div>
+                  <div class="post2 nickname">made By.소라</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post2 number">2.</div>
+                <div class="post2 picture">
+                  <img src="https://cdn.pixabay.com/photo/2020/02/21/06/09/meringue-cake-4866598_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post2 title">머랭 케이크 만들기</div>
+                  <div class="post2 nickname">made By.봄</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post2 number">3.</div>
+                <div class="post2 picture">
+                  <img src="https://cdn.pixabay.com/photo/2019/12/25/17/55/cinnamon-roll-4719023_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post2 title">시나몬 롤 시나몬 빵 만들기</div>
+                  <div class="post2 nickname">made By.하태우</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post2 number">4.</div>
+                <div class="post2 picture">
+                  <img src="https://cdn.pixabay.com/photo/2019/03/24/14/23/bread-4077812_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post2 title">크로아상 만들기</div>
+                  <div class="post2 nickname">made By.bokyeong</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post2 number">5.</div>
+                <div class="post2 picture">
+                  <img src="https://cdn.pixabay.com/photo/2018/07/01/19/50/muffin-3510308_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post2 title">머핀 케이크 만들기</div>
+                  <div class="post2 nickname">made By.SSoooda</div>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+          <div class="post3 name"><b>음료</b></div>
+          <div class="post3 mainbox">
+            <ul class="rank">
+              <li>
+                <div class="post3 number">1.</div>
+                <div class="post3 picture">
+                  <img src="https://cdn.pixabay.com/photo/2017/05/12/08/29/coffee-2306471_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post3 title">라떼는 말이야! 라떼 만들기</div>
+                  <div class="post3 nickname">made By.소라</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post1 number">2.</div>
+                <div class="post3 picture">
+                  <img src="https://cdn.pixabay.com/photo/2020/07/09/10/45/coffee-5386871_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post3 title">아이스 아메리카노 만들기</div>
+                  <div class="post3 nickname">made By.봄</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post3 number">3.</div>
+                <div class="post3 picture">
+                  <img src="https://cdn.pixabay.com/photo/2014/12/05/02/30/tea-557448_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post3 title">따뜻한 홍차 한잔 하실래요?</div>
+                  <div class="post3 nickname">made By.Jaeyeop</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post3 number">4.</div>
+                <div class="post3 picture">
+                  <img src="https://cdn.pixabay.com/photo/2022/02/15/00/40/lemonade-7014122_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post3 title">새콤달콤 레몬에이드 만들기</div>
+                  <div class="post3 nickname">made By.하태우</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post3 number">5.</div>
+                <div class="post3 picture">
+                  <img src="https://cdn.pixabay.com/photo/2015/06/02/13/58/pink-lemonade-795029_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <div class="post3 title">누가 요즘 그냥 레몬에이드를 먹습니까? 핑크 레몬에이드 만들기</div>
+                  <div class="post3 nickname">made By.bokyeong</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- 하단 3개 -->
+      <div class="post second">
+        <div class="content">
+          <div class="post4 name"><b>노오븐 베이킹</b></div>
+          <div class="post4 mainbox">
+            <ul class="rank">
+              <li>
+                <div class="post4 number">1.</div>
+                <div class="post4 picture">
+                  <img src="https://cdn.pixabay.com/photo/2015/09/09/19/49/dessert-932884_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post4 title">티라미수 만들기</div>
+                  <div class="post4 nickname">made By.소라</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post4 number">2.</div>
+                <div class="post4 picture">
+                  <img src="https://cdn.pixabay.com/photo/2014/07/10/13/34/sponge-cake-389071_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post4 title">카스테라 만들기</div>
+                  <div class="post4 nickname">made By.봄</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post4 number">3.</div>
+                <div class="post4 picture">
+                  <img src="https://cdn.pixabay.com/photo/2020/12/06/15/52/cookies-5809181_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post4 title">노오븐 쿠키 만들기</div>
+                  <div class="post4 nickname">made By.Jaeyeop</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post4 number">4.</div>
+                <div class="post4 picture">
+                  <img src="https://cdn.pixabay.com/photo/2013/09/05/19/31/donuts-179248_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <div class="post4 title">알록달록 도넛 오븐없이 간단하게 만들기</div>
+                  <div class="post4 nickname">닉네임4</div>
+                </div>
+              </li>
+              <li>
+                <div class="post4 number">5.</div>
+                <div class="post4 picture">
+                  <img src="https://cdn.pixabay.com/photo/2020/01/16/02/00/trick-or-treat-4769452_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <div class="post4 title">노오븐이 이것도 된다구? 찹쌀떡 만들기</div>
+                  <div class="post4 nickname">made By.bokyeong</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+          <div class="post5 name"><b>사진 팁</b></div>
+          <div class="post5 mainbox">
+            <ul class="rank">
+              <li>
+                <div class="post5 number">1.</div>
+                <div class="post5 picture">
+                  <img src="https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post5 title">사진의 구도이해(인물편)</div>
+                  <div class="post5 nickname">made By.소라</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post5 number">2.</div>
+                <div class="post5 picture">
+                  <img src="https://cdn.pixabay.com/photo/2014/10/16/09/15/lens-490806_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post5 title">더 맛있게 찍는 방법!</div>
+                  <div class="post5 nickname">made By.봄</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post5 number">3.</div>
+                <div class="post5 picture">
+                  <img src="https://cdn.pixabay.com/photo/2014/11/03/10/44/camera-514992_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <div class="post5 title">구도를 알면 더 맛있어 보인다 사진찍는 방법!</div>
+                  <div class="post5 nickname">made By.Jaeyeop</div>
+                </div>
+              </li>
+              <li>
+                <div class="post5 number">4.</div>
+                <div class="post5 picture">
+                  <img src="https://cdn.pixabay.com/photo/2013/11/28/10/02/camera-219958_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post5 title">사진을 잘 찍는건 어려운게 아니랍니다.</div>
+                  <div class="post5 nickname">made By.하태우</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post5 number">5.</div>
+                <div class="post5 picture">
+                  <img src="https://cdn.pixabay.com/photo/2016/03/27/19/43/samsung-1283938_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <div class="post5 title">음식사진은 갤럭시! 갤럭시로 베이커리 사진 잘찍는방법</div>
+                  <div class="post5 nickname">made By.bokyeong</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+          <div class="post6 name"><b>최신 글</b></div>
+          <div class="post6 mainbox">
+            <ul class="rank">
+              <li>
+                <div class="post6 number">1.</div>
+                <div class="post6 picture">
+                  <img src="https://cdn.pixabay.com/photo/2016/11/22/18/52/cake-1850011_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post6 title">초콜릿 케이크 만들어주기</div>
+                  <div class="post6 nickname">made By.소라</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post6 number">2.</div>
+                <div class="post6 picture">
+                  <img src="https://cdn.pixabay.com/photo/2021/09/18/20/50/truffles-6636081_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <a href="#">
+                  <div class="post6 title">코코아 초콜릿 만들기</div>
+                  <div class="post6 nickname">made By.봄</div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="post6 number">3.</div>
+                <div class="post6 picture">
+                  <img src="https://cdn.pixabay.com/photo/2013/09/18/18/24/chocolate-183543_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <div class="post6 title">안생겨요.못받아요. 스스로에게 선물하는 다크 초콜릿</div>
+                  <div class="post6 nickname">made By.하태우</div>
+                </div>
+              </li>
+              <li>
+                <div class="post6 number">4.</div>
+                <div class="post6 picture">
+                  <img src="https://cdn.pixabay.com/photo/2016/10/30/09/30/hot-chocolate-1782623_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <div class="post6 title">핫 초코도 초코잖아? 핫초코 만들기</div>
+                  <div class="post6 nickname">made By.bokyeong</div>
+                </div>
+              </li>
+              <li>
+                <div class="post5 number">5.</div>
+                <div class="post6 picture">
+                  <img src="https://cdn.pixabay.com/photo/2014/10/16/13/20/chocolates-491165_1280.jpg"  alt="">
+
+                </div>
+                <div class="rightText">
+                  <div class="post6 title">남자친구에게 전해줄 정성스런 초콜릿 만들기</div>
+                  <div class="post6 nickname">made By.SSoooda</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+</div>
 <!-- 최하단 -->
 <footer th:replace="fragment/footer.html::fragment-footer"></footer>
 </body>

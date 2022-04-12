@@ -1,11 +1,17 @@
+<!DOCTYPE html>
 <html lang="ko"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragment/head">
 
 <head th:replace="fragment/head.html::fragment-head"></head>
+<th:block layout:fragment="page_css">
+  <link rel="stylesheet" href="" th:href="@{/css/home/home.css}">
+</th:block>
 <body>
 <header th:replace="fragment/menu.html::fragment-global"></header>
 <!--아이콘/검색창-->
-<div th:replace="fragment/uppermost.html::beforeLoginUpm"></div>
+<div th:replace="fragment/uppermost.html::afterLoginUpm"></div>
 
 <!-- 홈 메인 사진 -->
 <article><div class="recommend"></div></article>

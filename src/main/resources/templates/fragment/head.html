@@ -12,10 +12,12 @@
   <!--    폰트 적용 -->
   <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
   <!--   common style-->
-  <link rel="stylesheet" href="" th:href="@{/css/home/home.css}">
+  <link rel="stylesheet" href="" th:href="@{/css/home/common.css}">
+  <th:block layout:fragment="page_css"></th:block>
   <!--  common script-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script defer src="" th:src="@{/js/home/home.js}"></script>
+  <th:block layout:fragment="page_js"></th:block>
 </head>
 <body>
 
