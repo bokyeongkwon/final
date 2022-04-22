@@ -1,15 +1,5 @@
 'use strict';
 
-//// 현재 접속해있는 게시판의 카테고리 읽어오기.
-const $main = document.querySelector('main');
-const cateNum = ($main?.dataset.cateNum) ? $main.dataset.cateNum : '';
-
-const $writeBtn = document.getElementById('writeBtn');
-$writeBtn?.addEventListener('click', e => {
-    location.href = `/board/add?cateNum=${cateNum}`;
-
-});
-
 //관심리스트 설정/해제
 // .bookmark-container(상위 태그=parent container)위치에 체크박스를 생성한다
 // 0) 상위 컨테이너 위치 타겟팅. 여기 아래로 추가.

@@ -1,71 +1,8 @@
-*{  
-  padding: 0;
-  margin: 0;
-  font-family: 'Jua', sans-serif;
-}
+@charset "utf-8";
 
-a{
-  color: #000;
-}
-body{
-  background-color: #fcf8f4;
-  color: #594440;
-}
-header{
-  height: 100px;
-  width: 80%;
-  margin: 40px auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-ul{
-  list-style: none;
-  display: flex;
-}
-
-.menu>li{
-  margin:8px 12px;
-  font-size: 25px;
-}
-
-.icon li{
-  margin:8px 12px;
-  font-size: 30px;
-}
-
-.search{
-  width: 25%;
-  height: 40px;
-  margin: 0 auto;
-  display: flex;
-  /* border: 1px solid black; */
-}
-
-.search.textbox{
-  /* border: 1px solid black; */
-  width: 80%;
-  height: 30px;
-  font-size: 25px;
-  text-align:start;
-}
-
-.search.button{
-  width: 50px;
-  height: 35px;
-  line-height: 35px;
-  padding-left: 10px;
-  font-size: 16px;
-}
-
-.button-wrap{
-  display: flex;
-
-}
 main{
   width: 70%;
-  margin: 0 auto;
+  margin: 150px auto;
   display: flex;
   justify-content: center;
 }
@@ -89,6 +26,15 @@ section *{
   justify-content: space-between;
   font-size: 1.5em;
   font-weight: bolder;
+}
+
+.section_header .button-wrap button{
+    height : 30px;
+    width : 50px;
+}
+
+.boardTitle .bigMan{
+    display: none;
 }
 /* 게시판선택, 레시피 출처 선택 BOX */
 .임시{
@@ -181,10 +127,7 @@ section *{
   margin: 10px;
   text-align: left;
 }
-/* 하부 메뉴 */
-footer{
-  border: 1px solid darkgreen;
-}
+
 /* 개인정보 취급 방침,회원약관... */
 footer>ul{
   /* background-color: darkgrey; */

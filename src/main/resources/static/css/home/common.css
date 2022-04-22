@@ -1,7 +1,6 @@
 @charset "utf-8";
 
 *{
-    text-align: center;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -25,7 +24,8 @@ header{
     overflow: hidden;
     background:linear-gradient(#fcf8f4 100px, rgba(255,255,255,0.7) 100px, rgba(255,255,255,0.7));
     justify-content: space-between;
-    background: linear-gradient( to top, #fcf8f4, #FFE5CF );
+    /*background: linear-gradient( to top, #fcf8f4, #FFE5CF );*/
+    text-align : center;
 }
 
 header:after{content: "";

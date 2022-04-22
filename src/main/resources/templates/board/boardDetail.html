@@ -1,81 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/d4b88f7572.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet"> -->
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragment/head">
+
+<head th:replace="fragment/head.html::fragment-head"></head>
+<th:block layout:fragment="page_css">
   <link rel="stylesheet" href="" th:href="@{/css/board/boardDetail.css}">
-  <script defer src="" th:src="@{/js/board/boardDetail.js}"></script>
-  <title>게시물</title>
-</head>
+</th:block><th:block layout:fragment="page_js">
+  <script defer th:src="@{/js/board/boardDetail.js}"></script>
+  <script defer th:src="@{/js/board/category.js}"></script>
+</th:block>
 <body>
-<header>
-  <!-- 로고 -->
-  <div class="logo"><img src="/logo.jpg" alt="" width="180px" height="150px"></div>
-  <!-- 상단 메뉴 -->
-  <nav class="menuBox1">
-    <ul class="menu">
-      <li>
-        <a href="#">분야별 레시피</a>
-        <ul>
-          <li><a href="">제과</a></li>
-          <li><a href="">제빵</a></li>
-          <li><a href="">음료</a></li>
-          <li><a href="">노오븐 베이킹</a></li>
-        </ul>
-      </li>
-      <li>|</li>
-      <li>
-        <a href="#">테마별 레시피</a>
-        <ul>
-          <li><a href="">발렌타인 데이</a></li>
-          <li><a href="">할로윈</a></li>
-          <li><a href="">빼빼로 데이</a></li>
-          <li><a href="">크리스마스</a></li>
-        </ul>
-      </li>
-      <li>|</li>
-      <li>
-        <a href="#"> 사진 팁 </a>
-        <ul>
-          <li><a href="">구도/각도</a></li>
-          <li><a href="">보정</a></li>
-        </ul>
-      </li>
-      <li>|</li>
-      <li>
-        <a href="#">베이킹 클래스 찾기</a>
-        <ul>
-          <li><a href="">베이킹 클래스 찾기</a></li>
-        </ul>
-      </li>
-      <li>|</li>
-      <li>
-        <a href="#"> 커뮤니티 </a>
-        <ul>
-          <li><a href="">Q&A</a></li>
-          <li><a href="">자유 게시판</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-  <!-- 우측상단 아이콘 -->
-  <div class="icon">
-    <ul class="icon_ul">
-      <li ><a href="#" class="searchBtn"><i class="fas fa-search"></i></a></li>
-      <li><i class="far fa-user"></i></li>
-      <li><i class="fas fa-bars"></i></li>
-    </ul>
-  </div>
-</header>
-<main>
+<header th:replace="fragment/menu.html::fragment-global"></header>
+<!--아이콘/검색창-->
+<div th:replace="fragment/uppermost.html::beforeLoginUpm"></div>
+  <!-- 본문 -->
+<main th:data-cate-num="${cateNum}">
   <!-- 왼쪽 배너.-->
   <div id="leftCategory" >
     <th:block th:each=" super :${leftMenuTitle}">
@@ -83,11 +24,11 @@
     </th:block>
     <ul class="leftCategory_ul" >
       <th:block th:each=" items :${subTitle}">
-        <li class="leftCategory_li" ><a href="" th:href="@{/board/1(cateNum=${items.cateNum})}" id="leftCategory_li" class="leftLi_a" th:text="${items.cateName}">[sub]</a></li>
+        <li class="leftCategory_li" ><a href="" th:href="@{/board/1(cateNum=${items.cateNum})}"
+                                        id="leftCategory_li" class="leftLi_a" th:text="${items.cateName}">[sub]</a></li>
       </th:block>
     </ul>
   </div>
-  <!-- 본문 -->
   <!-- 게시물 -->
   <div class="main_content">
     <form action="" th:action th:method="Get" th:object="${detailForm}">
@@ -103,16 +44,10 @@
               <ul class="top_ul">
                 <!--                  <li><img src="/등급 아이콘/1.png" alt="" width="30px" height="30px"></li>-->
                 <li class="top_ul_nickname" th:text="*{nickname}">알로하</li>
-                <li><i th:data-boardNum="*{boardNum}" class="far fa-heart"></i></li>
+<!--                <li><i th:data-boardNum="*{boardNum}" class="far fa-heart"></i></li>-->
                 <li><i th:data-boardNum="*{boardNum}" class="fas fa-heart toggleColorChange"></i></li>
               </ul>
             </div>
-            <!-- 게시물 -->
-            <!--              <div class="side_med">-->
-            <!--                <ul class="med_ul">-->
-            <!--                  <li><div><a href="#" class="boardList" th:href="@{/mypage/{board.memberNum}/boardList}" >[[*{nickname}]]의 게시물</a></div></li>-->
-            <!--                </ul>-->
-            <!--              </div>-->
             <!-- 날짜, 조회수, 아이콘 -->
             <div class="side_bottom">
               <div class="upload_date" th:text="*{boardDate}">2022-03-03</div>
@@ -183,7 +118,7 @@
         </table>
         <!-- 댓글 작성 -->
         <div class="replied_bottom">
-          <textarea name="reply" id="replyTextArea" cols="150" rows="5" placeholder="댓글을 입력하세요."></textarea>
+          <textarea name="reply" id="replyTextArea" cols="140" rows="5" placeholder="댓글을 입력하세요."></textarea>
           <button class="replyBtn" type="button" th:data-boardNum="${boardNum}"  th:data-cateNum="${cateNum}">등록</button>
         </div>
 
@@ -212,53 +147,7 @@
     </form>
   </div>
 </main>
-<script>
-// 현재 접속해있는 게시판의 카테고리 읽어오기.
-const $main = document.querySelector('main');
-const cateNum = ($main?.dataset.cateNum) ? $main.dataset.cateNum : '';
-
-const $bakingClassWriteBtn = document.getElementById('bakingClassWriteBtn');
-$bakingClassWriteBtn?.addEventListener('click', e => {
-    location.href = `/board/add?cateNum=${cateNum}`;
-
-});
-
-// 헤더 내려오기
-$(function(){
-    const depth1 = $(".menu > li"),
-          header = $("header");
-
-    depth1.mouseenter(function(){
-        header.stop().animate({height:"500px"});
-    }).mouseleave(function(){
-        header.stop().animate({height:"100px"});
-    })
-    console.log('클릭됨');
-}); //ready
-
-//member on/off
-const $memberBtn = document.querySelector(".memberBtn");
-$memberBtn?.addEventListener("click", e=> {
-
-    const $container_member = document.querySelector(".container_member");
-    if($container_member.style.display=="none"){
-        $container_member.style.display = "flex";
-    }else{
-        $container_member.style.display = "none";
-    }
-});
-
-// 검색창 on/off
-const $searchBtn = document.querySelector(".searchBtn");
-$searchBtn?.addEventListener("click", e=> {
-
-    const $container_search = document.querySelector(".container_search");
-    if($container_search.style.display=="none"){
-        $container_search.style.display = "block";
-    }else{
-        $container_search.style.display = "none";
-    }
-});
-</script>
+<!-- 최하단 -->
+<footer th:replace="fragment/footer.html::fragment-footer"></footer>
 </body>
 </html>

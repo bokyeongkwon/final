@@ -1,11 +1,11 @@
 package com146.HOME.CA.BE.web.controller;
 
-import com146.HOME.CA.BE.domain.login.Login;
 import com146.HOME.CA.BE.domain.login.svc.LoginSVC;
 import com146.HOME.CA.BE.domain.member.Member;
 import com146.HOME.CA.BE.domain.member.svc.MemberSVC;
-import com146.HOME.CA.BE.web.form.login.*;
-import lombok.AllArgsConstructor;
+import com146.HOME.CA.BE.web.SessionConst;
+import com146.HOME.CA.BE.web.form.login.LoginForm;
+import com146.HOME.CA.BE.web.form.login.LoginMember;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ import javax.validation.Valid;
 //@RequestMapping("/login")
 public class LoginController {
 
-//  private final MemberSVC memberSVC;
+  private final MemberSVC memberSVC;
   private final LoginSVC loginSVC;
 
   /**
@@ -42,7 +42,7 @@ public class LoginController {
    * 로그인처리
    * @param loginForm
    * @param bindingResult
-   * @param redirectUrl
+   * @param
    * @return
    */
   @PostMapping("/login")
@@ -50,8 +50,6 @@ public class LoginController {
           @Valid
           @ModelAttribute LoginForm loginForm,
           BindingResult bindingResult,
-          @RequestParam(name="redirectUrl",defaultValue = "/") String redirectUrl,
-          Model model,
           HttpServletRequest request){
 
     //필드유효성 체크
@@ -59,23 +57,25 @@ public class LoginController {
       log.info("loginError={}", bindingResult);
       return "login/loginForm";
     }
-//    //회원유무 체크
-//    if(!memberSVC.exitMember(loginForm.getId())){
-//      bindingResult.reject("loginFail.id");
-//      return "login/loginForm";
-//    }
+    //회원유무 체크
+    if(!memberSVC.existId(loginForm.getId())){
+      bindingResult.reject("loginFail.id");
+      return "login/loginForm";
+    }
     //로그인 체크
-    Login login = loginSVC.login(loginForm.getId(),loginForm.getPw());
-    if(login == null){
+    Member member = memberSVC.login(loginForm.getId(),loginForm.getPw());
+    if(member == null){
       bindingResult.reject("loginFail.pw");
       return "login/loginForm";
     }
 
+    LoginMember loginMember = new LoginMember(member.getId(),member.getNickname());
+
     //로그인 성공
     HttpSession httpSession = request.getSession(true);
-    //로그인 정보
-    LoginMember loginMember = new LoginMember(login.getId(),login.getPw());
-    httpSession.setAttribute("loginMember", loginMember);
+    httpSession.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
+
+
     //URL 재요청
     return "redirect:/";
 

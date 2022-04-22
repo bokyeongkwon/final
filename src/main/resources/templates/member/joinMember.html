@@ -8,6 +8,9 @@
 <th:block layout:fragment="page_css">
     <link rel="stylesheet" href="" th:href="@{/css/member/joinMember.css}">
 </th:block>
+<th:block layout:fragment="page_js">
+    <script defer th:src="@{/js/member/joinMember.js}"></script>
+</th:block>
 <body>
 <header th:replace="fragment/menu.html::fragment-global"></header>
 <!--아이콘/검색창-->
@@ -31,9 +34,9 @@
                     <input type="text" name="m_e_name" class="m_e_name" th:field="*{name}"
                            th:class="${#fields.hasErrors('name') ? 'fieldError' : 'fieldSuccess'}" required>
                     <span class="errmsg"></span>
-                    <li th:if="${#fields.hasErrors('name')}">
-                        <p th:erros="*{name}" th:errorclass="filedError"></p>
-                    </li>
+<!--                    <li th:if="${#fields.hasErrors('name')}">-->
+<!--                        <p>이름을 입력해주세요</p>-->
+<!--                    </li>-->
                 </div>
             </div>
             <div class="content m_id">
@@ -44,33 +47,35 @@
                     <button class="id_chk" id="idDubChk" type="button">중복확인</button>
                     <span>영문, 숫자 조합 2~20자 입력 가능</span>
                     <span class="errmsg"></span>
-                    <!--                        <li th:if="${#fields.hasErrors('id')}">-->
-                    <!--                            <p th:erros="*{id}" th:errorclass="fieldError"></p>-->
-                    <!--                        </li>-->
+<!--                    <li th:if="${#fields.hasErrors('id')}">-->
+<!--                        <p>아이디를 입력해주세요</p>-->
+<!--                    </li>-->
                 </div>
             </div>
             <div class="content m_pwd">
                 <div class="item pwd">비밀번호</div>
                 <div class="item2">
-                    <input type="text" name="m_e_pwd" class="m_e_pwd" th:field="*{pw}"
+                    <input type="password" name="m_e_pwd" class="m_e_pwd" th:field="*{pw}"
                            th:class="${#fields.hasErrors('pw') ? 'fieldError' : 'fieldSuccess'}" required>
                     <span>영문, 숫자, 특수문자 조합으로 8~20자 입력 가능</span>
                     <span class="errmsg"></span>
-                    <!--A-->
+<!--                    <li th:if="${#fields.hasErrors('pw')}">-->
+<!--                        <p>비밀번호를 입력해주세요</p>-->
+<!--                    </li>-->
                 </div>
             </div>
             <div class="content m_pwd_chk">
                 <div class="item pwd_chk">비밀번호 확인</div>
                 <div class="item2">
-                    <input type="text" name="m_e_pwd_chk" class="m_e_pwd_chk" th:field="*{pw2}"
+                    <input type="password" name="m_e_pwd_chk" class="m_e_pwd_chk" th:field="*{pw2}"
                            th:class="${#fields.hasErrors('pw2') ? 'fieldError' : 'fieldSuccess'}" required>
                     <span class="errmsg"></span>
-                    <li th:if="${#fields.hasErrors('pw2')}">
-                        <p th:erros="*{pw2}" th:errorclass="fieldError"></p>
-                    </li>
-                    <li th:if="${#fields.hasErrors('global')}">
-                        <p th:erros="*{global}" th:errorclass="globalError"></p>
-                    </li>
+<!--                    <li th:if="${#fields.hasErrors('pw2')}">-->
+<!--                        <p>확인 비밀번호를 입력해주세요</p>-->
+<!--                    </li>-->
+<!--                    <li th:if="${#fields.hasErrors('global')}">-->
+<!--                        <p th:erros="*{global}" th:errorclass="globalError"></p>-->
+<!--                    </li>-->
                 </div>
             </div>
             <div class="content m_nickname">
@@ -80,9 +85,9 @@
                     <button class="nickname_chk" id="nicknameDubChk" >중복확인</button>
                     <span class="errmsg"></span>
                 </div>
-                <li th:if="${#fields.hasErrors('nickname')}">
-                    <p th:erros="*{nickname}" th:errorclass="fieldError"></p>
-                </li>
+<!--                <li th:if="${#fields.hasErrors('nickname')}">-->
+<!--                    <p>닉네임을 입력해주세요</p>-->
+<!--                </li>-->
             </div>
             <div class="content m_phone">
                 <div class="item phone">연락처</div>
@@ -96,15 +101,15 @@
                     <input type="text" name="tel3" class="m_e_phone" th:field="*{tel3}"
                            th:class="${#fields.hasErrors('tel3') ? 'fieldError' : 'fieldSuccess'}" required>
                     <span class="errmsg"></span>
-                    <li th:if="${#fields.hasErrors('tel1')}">
-                        <p th:erros="*{tel1}" th:errorclass="fieldError"></p>
-                    </li>
-                    <!--                        <li th:if="${#fields.hasErrors('tel2')}">-->
-                    <!--                            <p th:erros="*{tel2}" th:errorclass="fieldError"></p>-->
-                    <!--                        </li>-->
-                    <li th:if="${#fields.hasErrors('tel3')}">
-                        <p th:erros="*{tel3}" th:errorclass="fieldError"></p>
-                    </li>
+<!--                    <li th:if="${#fields.hasErrors('tel1')}">-->
+<!--                        <p>연락처를 입력해주세요</p>-->
+<!--                    </li>-->
+<!--                    <li th:if="${#fields.hasErrors('tel2')}">-->
+<!--                        <p>연락처를 입력해주세요</p>-->
+<!--                    </li>-->
+<!--                    <li th:if="${#fields.hasErrors('tel3')}">-->
+<!--                        <p>연락처를 입력해주세요</p>-->
+<!--                    </li>-->
                 </div>
             </div>
             <div class="content m_email">
@@ -114,6 +119,9 @@
                            th:class="${#fields.hasErrors('email') ? 'fieldError' : 'fieldSuccess'}" required>
                     <button id="emailDubChk" type="button">중복확인</button>
                     <span class="errmsg"></span>
+<!--                    <li th:if="${#fields.hasErrors('email')}">-->
+<!--                        <p>이메일을 입력해주세요</p>-->
+<!--                    </li>-->
                 </div>
             </div>
             <div class="content m_birth">
@@ -122,9 +130,9 @@
                     <input type="text" name="m_birth" class="m_birth" placeholder="생년월일(YYYYMMDD)" th:field="*{birth}"
                            th:class="${#fields.hasErrors('birth') ? 'fieldError' : 'fieldSuccess'}" required>
                     <span class="errmsg"></span>
-                    <li th:if="${#fields.hasErrors('birth')}">
-                        <p th:erros="*{birth}" th:errorclass="fieldError"></p>
-                    </li>
+<!--                    <li th:if="${#fields.hasErrors('birth')}">-->
+<!--                        <p>생년월일을 입력해주세요</p>-->
+<!--                    </li>-->
                 </div>
             </div>
             <div class="content m_sex">

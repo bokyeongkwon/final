@@ -1,65 +1,4 @@
-*{
-    padding: 0;
-    margin: 0;
-    /* border: 1px solid red; */
-    /* font-family: 'Gamja Flower', cursive; */
-    /* background-color: #F7EEE3; */
-    background-color: #fcf8f4;
-    font-family: 'Jua', sans-serif;
-}
-a{
-    color: #000;
-    text-decoration: none;
-}
-header{
-    height: 100px;
-    width: 80%;
-    margin: 15px auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* 상단 메뉴 */
-.icon_ul,
-.menu{
-  list-style: none;
-  display: flex;
-}
-
-.menu>li{
-    margin:8px 12px;
-    font-size: 25px;
-}
-
-/* 우측 상단 아이콘 */
-.icon li{
-    margin:8px 12px;
-    font-size: 30px;
-}
-
-/* 검색창 */
-.search{
-    height: 40px;
-    width: 25%;
-    margin: 0 auto;
-    display: flex;
-}
-
-.search.textbox{
-    height: 30px;
-    width: 80%;
-    text-align:start;
-    font-size: 25px;
-}
-
-.search.button{
-    height: 35px;
-    width: 50px;
-    padding-left: 10px;
-    line-height: 35px;
-    font-size: 16px;
-}
+@charset "utf-8";
 
 /* main */
 main {
@@ -208,14 +147,3 @@ main {
     border: 1px solid black;
 }
 
-/* 하단 */
-footer{
-    border-top: 1px solid darkgreen;
-}
-
-footer>ul{
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-}

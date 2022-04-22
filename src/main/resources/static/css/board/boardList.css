@@ -1,120 +1,5 @@
 @charset "utf-8";
 
-* {
-    /* outline: red 1px solid; */
-    font-family: 'Jua', sans-serif;
-    padding: 0;
-    margin: 0;
-    color: #594440;
-    background-color: #fcf8f4;
-}
-
-a {
-    color: #000;
-    text-decoration: none;
-}
-
-header {
-    height: 100px;
-    width: 80%;
-    min-width: 1300px;
-    margin: 15px auto;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* 상단 메뉴, 아이콘 모양 */
-.icon_ul,
-.menu {
-    height: 100px;
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
-
-.menu>li {
-    height: 2em;
-    margin: 8px 12px;
-    font-size: 25px;
-}
-
-/* 메뉴 박스 */
-.category {
-    position: relative;
-}
-
-/* 드롭다운 구현 */
-.dropdown-content {
-    /* 숨기기 */
-    display: none;
-    position: absolute;
-    z-index: 1000;
-
-}
-
-/* 펼치기 */
-.category:hover .dropdown-content {
-    transition: all .5s ease-out;
-    /* background-color: black; */
-    width: 100%;
-    height: inherit;
-    display: block;
-    transition: ease-in-out .5s;
-    display: grid;
-    grid-template-columns: 1fr 1fr 0.75fr 1.3fr 0.65fr;
-}
-
-.depth2 {
-    display: flex;
-    flex-direction: column;
-    width: inherit;
-    height: 50px;
-    line-height: 50px;
-    margin: 0 auto;
-    font-size: 20px;
-    text-align: center;
-}
-
-/* 마우스 호버링 컬러 */
-.dropdown-content>div>a:hover {
-    background-color: black;
-    color: white;
-}
-
-/* 우측 상단 아이콘 */
-.icon li {
-    margin: 8px 12px;
-    font-size: 30px;
-}
-
-/* 검색창 */
-.container_search {
-    min-width: 1400px;
-}
-
-.search {
-    height: 40px;
-    width: 25%;
-    margin: 0 auto;
-    display: flex;
-
-}
-
-.search.textbox {
-    height: 30px;
-    width: 80%;
-    text-align: start;
-    font-size: 25px;
-}
-
-.search.button {
-    height: 35px;
-    width: 50px;
-    padding-left: 10px;
-    line-height: 35px;
-    font-size: 16px;
-}
-
 
 /* main */
 main {
@@ -122,7 +7,7 @@ main {
     width: 80%;
     min-width: 1400px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 200px;
     display: flex;
 }
 
@@ -268,6 +153,7 @@ input[type="checkbox"]:checked~.unchecked{display: none;}
 
 .memId {
     width: 200px;
+    text-align: start;
 }
 
 .uploadTime {
@@ -336,15 +222,3 @@ input[type="checkbox"]:checked~.unchecked{display: none;}
     color: black;
 }
 
-/* 사이트 방침 */
-footer {
-    border-top: 1px solid darkgreen;
-    min-width: 1300px;
-}
-
-footer>ul {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-}

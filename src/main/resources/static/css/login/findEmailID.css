@@ -1,53 +1,12 @@
-*{
-  padding: 0;
-  margin: 0;
-  /* font-family: 'Gamja Flower', cursive; */
-  /* background-color: #fff8ee; */
-  font-family: 'Jua', sans-serif;
-}
-
-a{
-  color: #000;
-}
-/* 상단 메뉴 */
-header{
-  width: 100%;
-  height: 35px;
-  display: flex;
-  background-color: orange;
-/*  justify-content: center; */
-}
-.topMenu {
-  display: none;
-}
+@charset "utf-8";
 
 /* 아이디 찾기 구현 시작 */
 
-/* 헤드(여백 내용) */
-.head_blank {
-  display: flex;
-  justify-content: center;
-  background-color: white;
-}
-.order{
-  margin-top: 100px;
-  width: 500px;
-}
-.orderTop{
-  display: flex;
-  justify-content: space-between;
-}
-.big{
-  font-size: 1.3em;
-}
-.small1 {
-  font-size: 0.5em;
-}
 /* 타이틀 내용 */
 article {
   height: 340px;
   width: 500px;
-  margin: 0 auto;
+  margin: 250px auto 30px auto;
   background-color: beige;
 }
 .idFind-top {
@@ -118,17 +77,23 @@ li {
 
 /* 아이디찾기 구현 종료 */
 
-/* 하단 */
-footer {
-  margin: 0 auto;
+/* 헤드(여백 내용) */
+.order{
+  margin: 50px auto 250px auto;
+  width: 500px;
 }
-/* 비밀번호 찾기 바로가기 */
-.bottom-text {
-  margin-top: 10px;
-  flex-direction: row;
-  justify-content: center;
-  display: flex;
-  font-size: 13px;
+
+.orderTop{
+    display : flex;
+    justify-content : space-evenly;
+}
+
+#big{
+    padding: 5px;
+}
+
+.big{
+  font-size: 1.3em;
 }
 
 /* @media screen and (max-width:400px) {

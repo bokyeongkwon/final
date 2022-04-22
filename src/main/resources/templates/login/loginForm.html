@@ -1,261 +1,100 @@
 <!DOCTYPE html>
 <html lang="ko"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>로그인</title>
-  <script src="https://kit.fontawesome.com/69fdf7daef.js" crossorigin="anonymous"></script>
-<!--  <script src="https://kit.fontawesome.com/d4b88f7572.js" crossorigin="anonymous"></script>-->
-  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet"> -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <link rel="stylesheet" href="/css/login/loginForm.css">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragment/head">
+
+<head th:replace="fragment/head.html::fragment-head"></head>
+<th:block layout:fragment="page_css">
+  <link rel="stylesheet" href="" th:href="@{/css/login/loginForm.css}">
+</th:block>
+<th:block layout:fragment="page_js">
+    <script defer th:src="@{/js/login/login.js}"></script>
+  <!--외부로그인API js-->
+  <script defer src="" th:src="@{/js/login/apiLogin.js}"></script>
   <!--카카오로그인API-->
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
   <script>Kakao.init("13985b7a92d3ad25544564af1540eed1");</script>
   <!--네이버로그인API-->
   <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
-
-<!--  js 파일 만들어지면 따로 빼낼 예정-->
-  <script>
-    'use strict'
-
-    $(function () {
-      const depth1 = $(".menu > li"),
-        header = $("header");
-
-      depth1.mouseenter(function () {
-        header.stop().animate({ height: "500px" });
-      }).mouseleave(function () {
-        header.stop().animate({ height: "100px" });
-      })
-    });
-  </script>
-</head>
+</th:block>
 <body>
-<header>
-  <div class="inner">
-    <!-- 로고 -->
-    <div class="logo"><img src="/img/logo.jpg" alt="" width="130px" height="100px"></div>
-    <!-- 상단 메뉴 -->
-    <nav class="menuBox1">
-      <!-- <ul class="menu">
-              <li>분야별 레시피</li>
-              <li>|</li>
-              <li>테마별 레시피</li>
-              <li>|</li>
-              <li>사진 팁</li>
-              <li>|</li>
-              <li>베이킹 클래스</li>
-              <li>|</li>
-              <li>커뮤니티</li>
-          </ul> -->
-      <!-- <ul class="menu">
-              <li><a href="#" >분야별 레시피</a></li>
-              <li>|</li>
-              <li><a href="#" >테마별 레시피</a></li>
-              <li>|</li>
-              <li><a href="#" >사진 팁</a></li>
-              <li>|</li>
-              <li><a href="#" >베이킹 클래스 찾기</a></li>
-              <li>|</li>
-              <li><a href="#" >커뮤니티</a></li>
-          </ul> -->
-      <ul class="menu">
-        <li>
-          <a href="#"><span>분야별 레시피</span></a>
-          <ul>
-            <li class="asd"><a href=""><span>제과</span></a></li>
-            <li><a href=""><span>제빵</span></a></li>
-            <li><a href=""><span>음료</span></a></li>
-            <li><a href=""><span>노오븐 베이킹</span></a></li>
-          </ul>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="#"><span>테마별 레시피</span></a>
-          <ul>
-            <li><a href=""><span>발렌타인 데이</span></a></li>
-            <li><a href=""><span>할로윈</span></a></li>
-            <li><a href=""><span>빼빼로 데이</span></a></li>
-            <li><a href=""><span>크리스마스</span></a></li>
-          </ul>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="#"><span>사진 팁</span></a>
-          <ul>
-            <li><a href="">구도/각도</a></li>
-            <li><a href="">보정</a></li>
-          </ul>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="#"><span>베이킹 클래스 찾기</span></a>
-          <ul>
-            <li><a href="">베이킹 클래스 찾기</a></li>
-          </ul>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="#"><span>커뮤니티</span></a>
-          <ul>
-            <li><a href="">Q&A</a></li>
-            <li><a href="">자유 게시판</a></li>
-          </ul>
-        </li>
-      </ul>
-
-    </nav>
-    <!-- 우측상단 아이콘 -->
-    <div class="icon">
-      <ul class="icon_ul">
-        <li><a href="#" class="searchBtn"><i class="fas fa-search"></i></a></li>
-        <li><a href="#"><i class="far fa-user"></i></a></li>
-        <li><a href="#"><i class="fas fa-bars"></i></a></li>
-      </ul>
-    </div>
-  </div>
-</header>
-<!-- 검색창 -->
-<div class="container_search">
-  <div class="search">
-    <input class="search textbox" type="text" placeholder="검색어를 입력하세요.">
-    <button class="search button">검색</button>
-  </div>
-</div>
+<header th:replace="fragment/menu.html::fragment-global"></header>
+<!--아이콘/검색창-->
+<div th:replace="fragment/uppermost.html::beforeLoginUpm"></div>
+<!-- 글로벌 오류 case1) form태그 밖에 있을 때 -->
+<ul th:if="${#fields.hasErrors('${loginForm}')}">
+  <li th:errors="${loginForm}" th:errorclass="globalError">글로벌 오류</li>
+</ul>
 <!-- 로그인 -->
-  <form action="" th:action method="post" th:object="${loginForm}">
-<section>
-  <!-- 윗부분 여백(margin-top과 별개) -->
-  <div class="margin-top"></div>
-  <article>
-    <!-- 로그인 상단 -->
-    <div class="login-title">HOME CA:BE LOGIN</div>
-    <div class="login-body">
-      <!-- 로그인 왼쪽 영역 -->
-      <div class="login-body1">
-        <!-- 아이디, 비밀번호 입력 -->
-        <div class="id-class">
-          <input type="text" th:field="*{id}" placeholder=" 아이디" class="id-textbox">
-        </div>
-        <div class="pw-class">
-          <input type="password" th:field="*{pw}" placeholder=" 비밀번호" class="pw-textbox">
-        </div>
-        <!-- 로그인 버튼 -->
-        <button class="login-button" type="submit" >로그인</button>
-        <!-- 아이디저장, 자동로그인 -->
-        <div class="login-checkbox">
-          <div class="check1">
-            <input type="checkbox" id="tag1" name="tag1">
-            <label for=tag1>아이디 저장</label>
+<form action="" th:action method="post" th:object="${loginForm}">
+  <section>
+    <!-- 윗부분 여백(margin-top과 별개) -->
+    <div class="margin-top"></div>
+    <article>
+      <!-- 로그인 상단 -->
+      <div class="login-title">HOME CA:BE LOGIN</div>
+      <div class="login-body">
+        <!-- 로그인 왼쪽 영역 -->
+        <div class="login-body1">
+          <!-- 아이디, 비밀번호 입력 -->
+          <div class="id-class">
+            <input type="text" name="id" th:field="*{id}" placeholder=" 아이디" class="id-textbox" th:errorclass="fieldError">
+            <div class="errmsg"></div>
           </div>
-          <div class="check2">
-            <input type="checkbox" id="tag2" name="tag2">
-            <label for=tag2><span class="autoLogin">자동로그인</span></label>
+          <div class="pw-class">
+            <input type="password" name="pw" th:field="*{pw}" placeholder=" 비밀번호" class="pw-textbox" th:errorclass="fieldError">
+            <div class="errmsg"></div>
+          </div>
+          <!-- 로그인 버튼 -->
+          <!--        <button class="login-button" onclick="login()" id="loginBtn" type="submit" >로그인</button>-->
+          <button class="login-button" id="loginBtn" type="submit" >로그인</button>
+          <!-- 아이디저장, 자동로그인 -->
+          <div class="login-checkbox">
+            <div class="check1">
+              <input type="checkbox" id="tag1" name="tag1">
+              <label for=tag1>아이디 저장</label>
+            </div>
+            <div class="check2">
+              <input type="checkbox" id="tag2" name="tag2">
+              <label for=tag2><span class="autoLogin">자동로그인</span></label>
+            </div>
+          </div>
+        </div>
+        <!-- 영역 구분 선 -->
+        <div class="line-border"></div>
+        <!-- 로그인 오른쪽 영역 -->
+        <div class="login-body2">
+          <!-- SNS 외부 API -->
+          <div class="login-sns">
+            <a id="naverIdLogin_loginButton" href="javascript:void(0)"><img class="login-naver"
+                                                                            src="https://nuriss.kr/data/editor/1811/thumb-f25dcaecf0e201873d1d781c022795e4_1542973599_017_835x181.png"></a>
+            <a href="/login/kakaoLogin"><img class="login-kakao"
+                                             src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png"></a>
+            <!--카카오로그인API
+            <form id="form-kakao-login" method="post" action="kakao-login">
+              <input type="hidden" name="name"/>-->
+            <!-- <a href="#"><img class="login-facebook"
+                src="https://www.junohair.com/static_resources/images/myjuno/facebook_login.png"></a> -->
           </div>
         </div>
       </div>
-      <!-- 영역 구분 선 -->
-      <div class="line-border"></div>
-      <!-- 로그인 오른쪽 영역 -->
-      <div class="login-body2">
-        <!-- SNS 외부 API -->
-        <div class="login-sns">
-          <a id="naverIdLogin_loginButton" href="javascript:void(0)"><img class="login-naver"
-                           src="https://nuriss.kr/data/editor/1811/thumb-f25dcaecf0e201873d1d781c022795e4_1542973599_017_835x181.png"></a>
-          <a href="/login/kakaoLogin"><img class="login-kakao"
-                           src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png"></a>
-          <!--카카오로그인API
-          <form id="form-kakao-login" method="post" action="kakao-login">
-            <input type="hidden" name="name"/>-->
-          <!-- <a href="#"><img class="login-facebook"
-              src="https://www.junohair.com/static_resources/images/myjuno/facebook_login.png"></a> -->
+      <!-- 로그인 하단 -->
+      <div class="login-bottom">
+        <div class="login-text">
+          <div><a href="#" th:href="@{/member/add}">회원가입&nbsp;</a></div>
+          <div class="login-text_br">|</div>
+          <div><a href="#" th:href="@{/findTelID}">&nbsp;아이디찾기&nbsp;</a></div>
+          <div class="login-text_br">|</div>
+          <div><a href="#" th:href="@{/findTelPW}">&nbsp;비밀번호찾기</a></div>
         </div>
       </div>
-    </div>
-    <!-- 로그인 하단 -->
-    <div class="login-bottom">
-      <div class="login-text">
-        <div><a href="#" th:href="@{/member/add}">회원가입&nbsp;</a></div>
-        <div class="login-text_br">|</div>
-        <div><a href="#" th:href="@{/findTelID}">&nbsp;아이디찾기&nbsp;</a></div>
-        <div class="login-text_br">|</div>
-        <div><a href="#" th:href="@{/findTelPW}">&nbsp;비밀번호찾기</a></div>
-      </div>
-    </div>
-  </article>
-</section>
-  </form>
+    </article>
+  </section>
+</form>
 
-<!-- 하단 -->
-<footer>
-  <ul class="menu">
-    <li>HOME CA:BE 운영팀:a@kh.com</li>
-    <li>|</li>
-    <li>이용약관</li>
-    <li>|</li>
-    <li>개인정보취급방침</li>
-  </ul>
-</footer>
-<script>
-  const check = $("input[type='checkbox']");
-  check.click(function(){
-  $("p").toggle();
-  });
+<!-- 최하단 -->
+<footer th:replace="fragment/footer.html::fragment-footer"></footer>
 
-  //네이버로그인API구현
-  var naverLogin = new naver.LoginWithNaverId(
-		{
-			clientId: "9TUr3P7Zc6dpozd8LHJg", //내 애플리케이션 정보에 cliendId를 입력해줍니다.
-			callbackUrl: "https://localhost:9080/callback", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
-			isPopup: false,
-			callbackHandle: true
-		}
-	);
-
-naverLogin.init();
-
-window.addEventListener('load', function () {
-	naverLogin.getLoginStatus(function (status) {
-		if (status) {
-			var email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다.
-
-			console.log(naverLogin.user);
-
-            if( email == undefined || email == null) {
-				alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
-				naverLogin.reprompt();
-				return;
-			}
-		} else {
-			console.log("callback 처리에 실패하였습니다.");
-		}
-	});
-});
-
-
-var testPopUp;
-function openPopUp() {
-    testPopUp= window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=1,height=1");
-}
-function closePopUp(){
-    testPopUp.close();
-}
-
-function naverLogout() {
-	openPopUp();
-	setTimeout(function() {
-		closePopUp();
-		}, 1000);
-
-
-}
-</script>
 </body>
 </html>

@@ -1,22 +1,11 @@
-*{
-  padding: 0;
-  margin: 0;
-  /* font-family: 'Gamja Flower', cursive; */
-  /* background-color: #fff8ee; */
-  font-family: 'Jua', sans-serif;
-}
-
-a{
-  color: #000;
-  text-decoration-line: none;
-}
+@charset "utf-8";
 
 /* 아이디 확인 구현 시작 */
 /* 타이틀 내용 */
 article {
   height: 270px;
   width: 400px;
-  margin: 30px auto;
+  margin: 100px auto;
   background-color: beige;
 }
 .showPW-top {
@@ -35,12 +24,9 @@ article {
 }
 /* 아이디확인 구현 종료 */
 
-/* 하단 */
-footer {
-  margin: 0 auto;
-}
 /* 비밀번호 찾기 바로가기 */
 .bottom-text {
+  margin: 0 auto;
   justify-content: center;
   display: flex;
   font-size: 13px;

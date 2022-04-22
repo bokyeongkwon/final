@@ -1,51 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/login/findEmailID.css">
-  <script src="https://kit.fontawesome.com/69fdf7daef.js" crossorigin="anonymous"></script>
-  <!-- 라디오버튼 선택해 div 보여주기 -->
-  <script>
-    function div_show(selectList) {
-      const $obj1 = document.getElementById("type1"); // 휴대폰으로 찾기
-      const $obj2 = document.getElementById("type2"); // 이메일로 찾기
-      // 휴대폰으로 찾기
-      if (selectList == "0") {
-        $obj1.style.display = "block";
-        $obj2.style.display = "none";
-      // 이메일로 찾기
-      } else if (selectList == "1") {
-        $obj1.style.display = "none";
-        $obj2.style.display = "block";
-      }
-    }
-  </script>
-</head>
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragment/head">
+
+<head th:replace="fragment/head.html::fragment-head"></head>
+<th:block layout:fragment="page_css">
+  <link rel="stylesheet" href="" th:href="@{/css/login/findEmailID.css}">
+</th:block>
+<th:block layout:fragment="page_js">
+  <script defer th:src="@{/js/login/findByEmail.js}"></script>
+</th:block>
 <body>
-<!-- 상단 메뉴 -->
-<header>
-<!--  <div class="topMenu">-->
-<!--    <a class="" href="#">비밀번호 찾기</a>-->
-<!--    <a class="" href="#">홈으로</a>-->
-<!--  </div>-->
-</header>
+<header th:replace="fragment/menu.html::fragment-global"></header>
+<!--아이콘/검색창-->
+<div th:replace="fragment/uppermost.html::beforeLoginUpm"></div>
 <!-- 아이디 찾기 시작-->
-<!-- 헤드(여백 내용) -->
-<div class="head_blank">
-  <div class="order">
-    <div class="orderTop">
-      <div class="big">아이디 찾기 &nbsp;|&nbsp; <a href="/" th:href="@{/}">홈으로 돌아가기</a></div>
-    </div>
-    <hr>
-    <div class="small1">아이디를 찾기 위한 방법을 선택해주세요.</div>
-  </div>
-</div>
+
 <!-- 타이틀 내용 -->
 <form action="" th:action="@{/login/findEmailID}" >
 
@@ -99,12 +70,17 @@
 </article>
   </form>
 <!-- 하단 -->
-<footer>
-  <div class="bottom-text">
-    <div>비밀번호가 기억나지 않는다면?&nbsp;&nbsp;</div>
-    <div><a href="#" th:href="@{/findTelPW}">비밀번호 찾기&nbsp;</a></div>
+<div class="head_blank">
+  <div class="order">
+    <div class="orderTop">
+      <div class="big"><a href="#" th:href="@{/findTelPW}">비밀번호 찾기&nbsp;</a></div>
+      <div class="big" id="big">|</div>
+      <div class="big"><a href="/" th:href="@{/}">홈으로 돌아가기</a></div>
+    </div>
   </div>
-</footer>
+</div>
+<!-- 최하단 -->
+<footer th:replace="fragment/footer.html::fragment-footer"></footer>
 </body>
 
 </html>

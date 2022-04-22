@@ -1,60 +1,24 @@
-*{
-    padding: 0;
-    margin: 0;
-    /* border: 1px solid red; */
-    /* font-family: 'Gamja Flower', cursive; */
-    /* background-color: #F7EEE3; */
-    background-color: #fcf8f4;
-    font-family: 'Jua', sans-serif;
-}
-a{
-    color: #000;
-    text-decoration: none;
-}
-
-header{
-    height: 100px;
-    width: 80%;
-    margin: 15px auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* 상단 메뉴 */
-.icon_ul,
-.menu{
-  list-style: none;
-  display: flex;
-}
-
-.menu>li{
-    margin:8px 12px;
-    font-size: 25px;
-}
-
-/* 우측 상단 아이콘 */
-.icon li{
-    margin:8px 12px;
-    font-size: 30px;
-}
+@charset "utf-8";
 
 /* main */
 main {
     height: 1400px;
     width: 80%;
+    min-width: 1400px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 200px;
     display: flex;
 }
 
 /* 왼쪽 카테고리 */
 #leftCategory {
-    height: 400px;
     width: 13%;
+    height: 400px;
+    background-color: white;
+
+    display: flex;
     flex-direction: column;
     text-align: center;
-    background-color: white;
 }
 
 #leftCategory_title {
@@ -68,29 +32,26 @@ main {
 }
 
 .leftCategory_ul {
-    height: 90%;
-    width: 100%;
+    height: 100%;
     list-style: none;
+    display: flex;
+    flex-direction: column;
 }
 
 .leftCategory_li {
-    height: 50px;
-    margin: 30px 0;
+    height: 25%;
     border-bottom: solid 1px black;
     font-size: 18pt;
-    line-height: 20px;
 }
 
-#bread{
-    padding: 10px;
-    border: 1px solid red;
-    border-radius: 5px;
+.leftLi_a {
+    line-height: 84px;
 }
 
 /* 게시물 */
 .main_content{
     flex-direction: column;
-    width: 87%;
+    width: 70%;
     margin-left: 100px;
 }
 
@@ -115,6 +76,7 @@ ul li{
     font-size: 30px;
 }
 .content_top .side{
+    width: 150px;
     padding-top: 10px;
     font-size: 25px;
 }
@@ -135,9 +97,6 @@ ul li{
     margin: 0 5px;
 }
 
-.content_top .fas{
-    color: red;
-}
 
 /* 날짜, 조회수, 아이콘 */
 .content_top .side_bottom{
@@ -180,12 +139,14 @@ ul li{
 .repliedWrap{
     margin-top: 50px;
     border: 1px solid black;
+
 }
 
 .replied_top{
     margin: 10px 20px;
     border-bottom: 1px solid gray;
     font-size: 30px;
+    text-align : start;
 }
 
 /* 댓글 내용*/
@@ -193,6 +154,7 @@ table{
     width: 100%;
     height: 50px;
     margin-top: 20px;
+    text-align : start;
 }
 
 table tbody td{
@@ -240,5 +202,5 @@ table tbody .icon{
 .replied_bottom .submit{
     width: 50px;
     height: 30px;
-    margin-top: 10px;
+    margin-top: 30px;
 }

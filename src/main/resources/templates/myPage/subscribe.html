@@ -1,55 +1,17 @@
 <!DOCTYPE html>
 <html lang="ko"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/d4b88f7572.js" crossorigin="anonymous"></script>
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet"> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="구독_알림_권보경.css">
-    <title>Document</title>
-</head>
-<body>
-<div class="container">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragment/head">
 
-    <!--header로고-->
-    <div class="header">
-        <header>
-            <!-- 로고 -->
-            <div class="logo"><img src="/logo.jpg" alt="" width="150px" height="100px"></div>
-            <!-- 상단 메뉴 -->
-            <nav>
-                <ul class="menu">
-                    <li>분야별 레시피</li>
-                    <li>|</li>
-                    <li>테마별 레시피</li>
-                    <li>|</li>
-                    <li>사진 팁</li>
-                    <li>|</li>
-                    <li>홈베이킹 클래스</li>
-                    <li>|</li>
-                    <li>Q&A</li>
-                    <li>|</li>
-                    <li>자유게시판</li>
-                </ul>
-            </nav>
-            <!-- 우측상단 아이콘 -->
-            <div class="icon">
-                <ul class="icon_ul">
-                    <li ><a href="#" class="searchBtn"><i class="fas fa-search"></i></a></li>
-                    <li><i class="far fa-user"></i></li>
-                    <li><i class="fas fa-bars"></i></li>
-                </ul>
-            </div>
-        </header>
-    </div>
+<head th:replace="fragment/head.html::fragment-head"></head>
+<th:block layout:fragment="page_css">
+    <link rel="stylesheet" href="" th:href="@{/css/myPage/subscribe.css}">
+</th:block>
+<body>
+<header th:replace="fragment/menu.html::fragment-global"></header>
+<!--아이콘/검색창-->
+<div th:replace="fragment/uppermost.html::afterLoginUpm"></div>
 
     <!--aside마이페이지버튼-->
     <div class="aside">
@@ -156,16 +118,7 @@
         </th:block>
     </div>
 
-    <!--fotter-->
-    <div class="footer">
-        <ul class="menu">
-            <li>개인정보취급방침</li>
-            <li>회원약관</li>
-            <li>공정위확인</li>
-            <li>쇼핑몰 고객센터</li>
-            <li>000-111-2222</li>
-        </ul>
-    </div>
-</div>
+<!-- 최하단 -->
+<footer th:replace="fragment/footer.html::fragment-footer"></footer>
 </body>
 </html>

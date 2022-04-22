@@ -1,3 +1,4 @@
+@charset "utf-8";
 
 /* 회원가입 화면 */
 main{
@@ -53,10 +54,12 @@ main{
     line-height: 40px;
 }
 
-input[type=text]{
+input[type=text], input[type=password]{
     width: 200px;
     height: 30px;
 }
+
+
 
 input[type=radio]{
     width: 15px;

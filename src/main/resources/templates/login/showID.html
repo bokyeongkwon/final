@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragment/head">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>아이디 출력</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/login/showID.css">
-  <script src="https://kit.fontawesome.com/69fdf7daef.js" crossorigin="anonymous"></script>
-</head>
+<head th:replace="fragment/head.html::fragment-head"></head>
+<th:block layout:fragment="page_css">
+  <link rel="stylesheet" href="" th:href="@{/css/login/showID.css}">
+</th:block>
 <body>
+<header th:replace="fragment/menu.html::fragment-global"></header>
+<!--아이콘/검색창-->
+<div th:replace="fragment/uppermost.html::beforeLoginUpm"></div>
 <!-- 아이디 확인 시작-->
 <!-- 타이틀 내용 -->
   <article>
@@ -22,13 +22,13 @@
   </article>
 </form>
 <!-- 하단 -->
-<footer>
   <div class="bottom-text">
     <div>비밀번호가 기억나지 않는다면?&nbsp;&nbsp;</div>
     <div><a href="#" th:href="@{/findTelPW}">비밀번호 찾기</a></div>
     <div>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" th:href="@{/}">홈으로 돌아가기</a></div>
   </div>
-</footer>
+<!-- 최하단 -->
+<footer th:replace="fragment/footer.html::fragment-footer"></footer>
 </body>
 
 </html>

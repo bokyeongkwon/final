@@ -131,10 +131,10 @@ public class MemberController {
     @GetMapping("/{memberNum}/del")
     public String delete(@PathVariable Long memberNum){
         memberSVC.outMember(memberNum);
-        return "redirect:/main";
+        return "redirect:/";
     }
     //마이페이지
-    @GetMapping("/mypage")
+    @GetMapping("/{memberNum}/mypage")
     public String mypage(){
         log.info("mypage() 호출됨");
         return "member/mypage";

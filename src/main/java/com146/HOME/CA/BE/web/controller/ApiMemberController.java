@@ -70,6 +70,20 @@ public class ApiMemberController {
         }
     }
 
+    //멤버 조회
+    @ResponseBody
+    @GetMapping("/api/member/{id}/{pw}/exist")
+    public ApiResult<Member> isMember(@PathVariable String id, String pw){
+
+        boolean isMember = memberSVC.isMember(id,pw);
+
+        if(isMember){
+            return new ApiResult("00","success","OK");
+        }else{
+            return new ApiResult("99","fail","NOK");
+        }
+    }
+
     //멤버수정
     @ResponseBody
     @PatchMapping("/api/member/{id}")

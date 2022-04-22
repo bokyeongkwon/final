@@ -6,59 +6,52 @@
 
 <head th:replace="fragment/head.html::fragment-head"></head>
 <th:block layout:fragment="page_css">
-  <link rel="stylesheet" href="" th:href="@{/css/board/community.css}">
-  <script defer th:src="@{/js/board/category.js}"></script>
+  <link rel="stylesheet" href="" th:href="@{/css/board/boardList.css}">
+</th:block>
+<th:block layout:fragment="page_js">
+  <script defer th:src="@{/js/board/boardList.js}"></script>
+<!--  <script defer th:src="@{/js/board/category.js}"></script>-->
 </th:block>
 <body>
 <header th:replace="fragment/menu.html::fragment-global"></header>
 <!--아이콘/검색창-->
 <div th:replace="fragment/uppermost.html::beforeLoginUpm"></div>
 
-<!-- main -->
 <main th:data-cate-num="${cateNum}">
-  <!-- 왼쪽 배너.-->
-  <div id="leftCategory" >
-    <th:block th:each=" super :${leftMenuTitle}">
-      <div id="leftCategory_title" th:text="${super.cateName}">[super]</div>
-    </th:block>
-    <ul class="leftCategory_ul" >
-      <th:block th:each=" items :${subTitle}">
-        <li class="leftCategory_li" ><a href="" th:href="@{/board/1(cateNum=${items.cateNum})}"
-                                        id="leftCategory_li" class="leftLi_a" th:text="${items.cateName}">[sub]</a></li>
-      </th:block>
-    </ul>
-  </div>
   <!-- 본문 -->
   <div class="liLiWrap">
     <div class="upperBox">
       <th:block th:each=" items :${subTitle}" th:if="${items.cateNum}==${cateNum}">
-        <div class="liLiMenu" th:text="${items.cateName}">[sub]</div>
+        <div class="liLiMenu" >관심리스트</div>
       </th:block>
-      <button type="button" id="writeBtn">글쓰기</button>
     </div>
 
-    <!-- start -->
-    <div class="mapBoard">
-      <div class="mapBoard_container">
-        <div class="col uppermost">no</div>
-        <div class="col uppermost">제목</div>
-        <div class="col uppermost">작성자</div>
-        <div class="col uppermost">작성일</div>
-        <div class="col uppermost">조회수</div>
+    <div class="liLiItems">
 
-        <!-- db내용을 ListForm 형식에 맞게 표시하는 데 타임리프 반복문 필요 -->
-        <th:block th:each=" item : ${list}">
-          <div class="col" th:text="${item.boardNum}">게시물 번호</div>
-          <a href="" class="col" id="boardTitle" th:text="${item.boardTitle}" th:href="@{/board/{boardNum}/detail(boardNum=${item.boardNum},cateNum=${param.cateNum})}">제목</a>
-          <div class="col" th:text="${item.nickname}">작성자ID or Nickname</div>
-          <div class="col" th:text="${#temporals.format(item.boardDate,'yy/MM/dd HH:dd')}">작성일</div>
-          <div class="col" th:text="${item.boardHit}">조회수</div>
-        </th:block>
+      <!-- start -->
+      <div class="item"  th:each=" item : ${list}">
+        <div class="post">
+          <div class="img-wrap">
+            <a href="" th:href="@{/board/{boardNum}/detail(boardNum=${item.boardNum},cateNum=${param.cateNum})}"><img src="https://cdn.pixabay.com/photo/2016/07/01/19/43/pretzels-1491789_960_720.jpg" alt=""></a>
+          </div>
+          <div class="caption" >
+            <a href="" th:href="@{/board/{boardNum}/detail(boardNum=${item.boardNum},cateNum=${param.cateNum})}" class="postTitle"
+               th:text="${item.boardTitle}">제목</a>
+            <!-- check -->
+            <div class="bookmark-container">
+              <!--                                관심(체크박스) 생성 위치-->
+            </div>
+            <!-- check end -->
+          </div>
+          <div class="info">
+            <span class="memId" th:text="${item.nickname}">By "회원명"</span>
+            <span class="uploadTime" th:text="${item.boardDate}">(업로드 날짜)</span>
+          </div>
+        </div>
       </div>
-    </div>
-    <!-- end -->
+      <!-- end -->
 
-  </div>
+    </div>
 
   </div>
 </main>
@@ -79,6 +72,7 @@
     <!--페이지표시-->
     <th:block th:each="pnum : ${#numbers.sequence(pc.startPage,pc.endPage)}">
       <th:block th:if="${pnum != 0}">
+        <!--                  <a class="bbs-page-item" th:classappend="${pc.rc.reqPage == pnum} ? 'active'" href="" th:href="@{|/board/${pnum}|}" th:text="${pnum}">1</a>-->
         <a class="bbs-page-item" th:classappend="${pc.rc.reqPage == pnum} ? 'active'" href=""
            th:href="@{/board/{reqPage}(reqPage=${pnum}, cateNum=${param.cateNum})}"
            th:text="${pnum}">1</a>

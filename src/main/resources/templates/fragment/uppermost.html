@@ -35,14 +35,13 @@
 </div>
 
 <div th:fragment="afterLoginUpm">
+  <form action="" th:action th:method="Get" th:object="${detailForm}">
   <ul class="container_member">
-    <li class="upm-menu-profileimg">
-      <img th:src="@{/api/members/{memberId}/pfimg(memberId=${s_memberId)}" alt=""
-           onerror="this.src='/img/noprofile.jpg'"></li>
+    <li class="upm-menu-profileimg" th:text="${nickname}"></li>
     <li>|</li>
-    <li th:text="|[${s_nickname}]|"></li>
+    <li class><a href="" th:href="@{/member/${memberNum}/edit}">내 정보</a></li>
     <li>|</li>
-    <li class="mypage"><a href="#" th:href="@{/member/mypage}"><span>마이 페이지</span></a></li>
+    <li class="mypage"><a href="#" th:href="@{/member/${memberNum}/mypage}"><span>마이 페이지</span></a></li>
     <li>|</li>
     <li class="logout"><a href="#" th:href="@{/logout}"><span>로그아웃</span></a></li>
   </ul>
@@ -53,6 +52,7 @@
       <button class="search button">검색</button>
     </div>
   </div>
+  </form>
 </div>
 </body>
 </html>
